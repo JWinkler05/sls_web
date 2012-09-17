@@ -67,6 +67,11 @@ if (isset($_SERVER['KOHANA_ENV']))
 }
 
 /**
+ * Set the environment string by the domain (defaults to 'development').
+ */
+Kohana::$environment = ($_SERVER['SERVER_NAME'] !== 'dev.smartlocalsocial.com') ? Kohana::PRODUCTION : Kohana::DEVELOPMENT;
+
+/**
  * Initialize Kohana, setting the default options.
  *
  * The following options are available:
@@ -83,6 +88,10 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/',
+	'index_file' => FALSE,
+	'profile'    => Kohana::$environment !== Kohana::PRODUCTION,
+	'caching'    => Kohana::$environment === Kohana::PRODUCTION,
+	'errors'     => TRUE,
 ));
 
 /**
@@ -113,8 +122,13 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+#Route::set('default', '(<controller>(/<action>(/<id>)))')
+#	->defaults(array(
+#		'controller' => 'welcome',
+#		'action'     => 'index',
+#	));
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'homepage',
 		'action'     => 'index',
 	));
