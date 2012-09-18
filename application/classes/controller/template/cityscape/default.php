@@ -3,8 +3,9 @@
 class Controller_Template_Cityscape_Default extends Controller_Template 
 {
 
-	public $template = 'template/cityscape/default';
 	private $template_path = 'template/cityscape/';
+
+	public $template = 'template/cityscape/default';
 
 	/**
 	* The before() method is called before your controller action.
@@ -44,7 +45,9 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 			$styles = array(
 				"media/{$this->template_path}css/screen.css" => 'screen, projection',
 				"media/{$this->template_path}css/print.css" => 'print',
-				"media/{$this->template_path}css/style.css" => 'all',
+				"media/{$this->template_path}css/container.css" => 'all',
+				"media/{$this->template_path}css/header.css" => 'all',
+				"media/{$this->template_path}css/main_menu.css" => 'all',
 			);
 
 			$scripts_upper = array(
@@ -57,9 +60,9 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 			  path: '/media/{$this->template_path}css/',
 			  dynamic: true,
 			  range: [
-			    '0px to 760px = mobile.min.css',
-			    '760px to 980px = 720.min.css',
-			    '980px to 2600px = 960.min.css'
+				'0px to 760px = mobile.min.css',
+				'760px to 980px = 720.min.css',
+				'980px to 2600px = 960.min.css'
 			  ]
 			};
 				",
