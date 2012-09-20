@@ -127,8 +127,13 @@ Kohana::modules(array(
 #		'controller' => 'welcome',
 #		'action'     => 'index',
 #	));
-Route::set('default', '(<controller>(/<action>(/<id>)))')
+Route::set('dev', 'dev(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'homepage',
+		'action'     => 'index',
+	));
+Route::set('default', '(<controller>(/<action>(/<id>)))')
+	->defaults(array(
+		'controller' => 'construction',
 		'action'     => 'index',
 	));
