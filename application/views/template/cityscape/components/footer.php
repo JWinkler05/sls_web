@@ -1,4 +1,3 @@
-<div id="cp_footer">
-<p>This is our footer</p>
+<div id="cp_footer grid_16" style="position: relative !important">
 </div>
 

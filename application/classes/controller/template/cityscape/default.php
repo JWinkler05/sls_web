@@ -48,6 +48,7 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 				"media/{$this->template_path}css/container.css" => 'all',
 				"media/{$this->template_path}css/header.css" => 'all',
 				"media/{$this->template_path}css/main_menu.css" => 'all',
+				"media/{$this->template_path}css/main_feature.css" => 'all',
 			);
 
 			$scripts_upper = array(

@@ -4,6 +4,7 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 {
 	public function action_index()
 	{
+		View::set_global('menu',TRUE);
 		$view = View::factory('pages/home');
 		$id = $this->request->param('id', NULL);
 

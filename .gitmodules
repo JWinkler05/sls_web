@@ -25,3 +25,6 @@
 [submodule "modules/unittest"]
 	path = modules/unittest
 	url = http://github.com/kohana/unittest.git
+[submodule "modules/storage"]
+	path = modules/storage
+	url = git@github.com:smartlocalsocial/kohana-storage.git

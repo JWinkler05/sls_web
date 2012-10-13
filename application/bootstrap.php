@@ -55,6 +55,7 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
  */
 I18n::lang('en-us');
 
+Cookie::$salt = 'sls_web1';
 /**
  * Set Kohana::$environment if a 'KOHANA_ENV' environment variable has been supplied.
  *
@@ -115,7 +116,8 @@ Kohana::modules(array(
 	// 'image'      => MODPATH.'image',      // Image manipulation
 	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
-	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	'storage'    => MODPATH.'storage',
 	));
 
 /**
@@ -127,6 +129,8 @@ Kohana::modules(array(
 #		'controller' => 'welcome',
 #		'action'     => 'index',
 #	));
+
+
 Route::set('dev', 'dev(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'homepage',
