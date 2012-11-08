@@ -1,0 +1,151 @@
+@charset "UTF-8";
+/* CSS Document */
+#wrapper {
+	height: 570px;
+	width: 960px;
+	margin: auto;
+	padding: 20px;
+	background-color: #FFF;
+}
+#header {
+	height: 130px;
+	width: 920px;
+	margin-left:20px;
+	margin-right:20px;	
+}
+#logo {
+	height: 56px;
+    width: 202px;
+	margin-top: 12px;
+	float: left;
+	background-image:url(images/logo.png);
+}
+#location {
+	height: 42px;
+	width: 372px;
+	margin-top: 12px;
+	padding-right:5px;
+	float: right;
+	font-family:Tahoma, Geneva, sans-serif;
+	text-align:right;
+	color: #78ABD1;
+	font-size:30px;
+	background-image:url(images/locationbg.gif);
+}
+#navbar {
+	height: 28px;
+	width: 685px;
+	float: right;
+	clear: both;
+	margin-top: 6px;
+}
+#grframe {
+	height: 408px;
+	width: 920px;
+	background-color:#E8E8E8;
+	float:left;
+	margin-left:20px;
+	margin-right:20px;
+}
+.innerwhite {
+	background-color:#FFF;
+	height: 328px;
+	width: 880px;
+	margin: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	-moz-border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.column {
+	height: 328px;
+	width: 175px;
+	float: left;
+	padding-right: 20px;
+	margin-left: 20px;
+}
+.columnafter {
+	height: 328px;
+	width: 175px;
+	padding-right: 20px;
+	float: left;
+	clear: none;
+	text-align:center;
+}
+.mainimg {
+	height: 328px;
+	width: 450px;
+	padding-right: 20px;
+	float: left;
+	clear: none;
+}
+.advype {
+	font-size:14px;
+	font-weight:bold;
+	line-height: 16px;
+	text-align: center;
+	color:#FFF;
+	background-color:#AAA;	
+}
+.advdeal {
+	text-align:center;
+	color:#777;
+	font-size:16px;
+	line-height: 19px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.regprice {
+	font-size:18px;
+	color:#36C;
+	font-weight: bold;
+	text-decoration: line-through;
+	padding-bottom: 5px;
+}
+.saleprice {
+	font-size:24px;
+	color: #F58B40;
+	font-weight:bold;
+}
+.fbicon {
+	background-image: url(images/fbicon.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	padding-left: 3px;
+}
+.columnaddy {
+	text-align:left;
+}
+.columnaddytitle {
+	font-size:16px;
+	color:#36C;
+	text-align: left;
+}
+#footer {
+	background-color: #040404;
+	float:left;
+	height: 32px;
+	width: 900px;
+	margin-top: auto;
+}
+.footertext {
+	font-size:14px;
+	line-height: 16px;
+	color:#E8E8E8;
+	margin-left:20px;
+	margin-right:20px;
+	padding:10px;	
+}
+
+	
+
+	
+
+
+	
+	
+
+	
+	

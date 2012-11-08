@@ -1,0 +1,44 @@
+/* Main Menu Styling*/
+
+
+#cp_main_menu {
+	margin-top: 57px;
+}
+/* header main menu */
+#cp_main_menu ul {
+	text-align: center;
+}
+
+#cp_main_menu ul li {
+	display: inline;
+	margin: 0px 5px;
+}
+#cp_main_menu ul li a {
+	color: black;
+	font-family: Georgia;
+	font-size: 9px;
+	font-weight: bold;
+	text-decoration: none;
+}
+#cp_main_menu ul li.selected {
+}
+
+#cp_main_menu ul:before {
+}
+
+#cp_main_menu ul:after {
+}
+
+#cp_main_menu ul li:before,
+#cp_main_menu ul li:after {
+}
+#cp_main_menu ul li:before {
+}
+#cp_main_menu ul li:after {
+}
+#cp_main_menu ul li.selected:before {
+}
+#cp_main_menu ul li.selected:after {
+}
+#cp_main_menu ul li.selected a {
+}

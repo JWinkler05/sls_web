@@ -1,0 +1,24 @@
+div.inner {
+	margin: 0px;
+}
+div.outer {
+	margin: 0px;
+}
+#cp_main_content {
+	margin: 20px 0px 0px 0px;
+	width: 720px;
+}
+
+#cp_side_content {
+	margin: 20px 0px 0px 0px;
+	width: 240px;
+}
+.ad_small {
+	height: 110px;
+	margin-bottom: 20px;
+}
+.ad_single {
+
+	height: 370px;
+	margin-bottom: 20px;
+}

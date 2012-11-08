@@ -1,0 +1,33 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	outline: 1px solid black;
+}
+
+body {
+	background:url('/media/template/cityscape/img/bgimg.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+/* Status Bar */
+#container_status {
+	background-color: #141414;
+	border-bottom: 1px solid darkmagenta;
+	color: lightgray;
+	height: 35px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+
+/* Main Container */
+
+#container_main {
+	background-color: white;
+	padding-top: 35px;
+	height: 2000px;
+}
+
+

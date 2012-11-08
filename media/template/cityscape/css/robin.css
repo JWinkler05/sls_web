@@ -1,0 +1,208 @@
+#tophead {
+	background-color: #C2C2C2;
+	height: 36px;
+	width: 100%;
+}
+#mainwrapper {
+	background-color: #FFF;
+	width: 960px;
+	margin-top: 14px;
+	margin-right: auto;
+	margin-bottom: 50px;
+	margin-left: auto;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 30px;
+}
+#logo {
+	float: left;
+	height: 56px;
+	width: 202px;
+	margin-left: 20px;
+}
+#lg_location {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 28pt;
+	font-weight: bold;
+	text-transform: capitalize;
+	color: #7B76B6;
+	text-align: right;
+	float: right;
+	height: 36px;
+	width: 372px;
+	margin-right: 20px;
+}
+#navbar {
+	clear: both;
+	float: right;
+	height: 28px;
+	width: 685px;
+	margin-bottom: 20px;
+	margin-right: 20px; 
+}
+body {
+	background-image: url(images/bgimg.jpg)
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+#container {
+	background-color:#FFF;
+	margin:auto;
+	width:920px;
+	padding:20px;
+	*zoom:1;
+}
+#container:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+#largeAds {
+	float:left;
+	width:705px;
+}
+.largeAd {
+	width:215px;
+	height:358px;
+	background-position: 0 25px;
+	background-repeat: no-repeat;
+	position: relative;
+	float: left;
+	margin-right:20px;
+	margin-bottom:20px;
+	overflow: hidden;
+}
+.largeAd .adType {
+	background-color:#DDD;
+	text-align: center;
+	height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	-moz-border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
+}
+.largeAd .adInfo {
+	margin-top:230px;
+	height:83px;
+	color:#FFF;
+	background-color: #000;
+	padding:10px;
+	-moz-border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+
+}
+.largeAd .business {
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 14px;
+}
+.largeAd .description {
+	font-size: 12px;
+	line-height: 13px;
+	font-weight: bold;
+	color: #D0D0D0;
+	float: left;
+	padding-right:10px;
+}
+.largeAd .beforeprice {
+	font-size: 14px;
+	line-height: 15px;
+	font-weight: bold;
+	color: #09C;
+	float: right;
+	text-decoration: line-through;
+}
+.largeAd .bottomUp {
+	clear: both;
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	width: 193px;
+}
+.largeAd .saleprice {
+	font-weight: bold;
+	text-align: right;
+	font-size:18px;
+	line-height: 18px;
+	color: #F93;
+}
+.largeAd .keyword {
+	font-weight: bold;
+	text-align: right;
+	font-weight: bold;
+	font-size:15px;
+	color:#FFF;
+}
+
+#smallAds {
+	float:left;
+	width:215px;
+}
+
+.smallAd {
+	width: 213px;
+	height: 104px;
+	margin-bottom: 20px;
+	border:1px solid #000;
+	position: relative;
+	background-position: 1px 1px;
+	background-repeat: no-repeat;
+	-moz-border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+	overflow: none;
+}
+.smallAd:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.smallAd .adInfo {
+	width:134px;
+	height: 84px;
+	padding: 10px;
+	margin-left:58px;
+	border-left:1px solid #000;
+}
+.smallAd .business {
+	color:#66C;
+	font-weight: bold;
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+.smallAd .subname {
+	color:#66C;
+	font-weight: bold;
+	font-size: 12px;
+}
+.smallAd .description {
+	font-size: 12px;
+}
+.smallAd .bottomUp {
+	clear: both;
+	position: absolute;
+	background: #000;
+	color: #FFF;
+	padding:5px 10px;
+	bottom:0;
+	right:0;
+	width:134px;
+	overflow: hidden;
+}
+.smallAd .keyword {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+
+#footer {
+	background-color: #040404;
+	clear: both;
+	height: 60px;
+	width: 100%;
+	margin-top: 20px;
+}
