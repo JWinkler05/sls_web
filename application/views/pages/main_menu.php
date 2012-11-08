@@ -1,12 +1,15 @@
 <?php
 $navigation_links = array(
-	'' => 'Home',
-	'homepage/contact' => 'Contact Us',
-	'test/' => 'Option 3',
-	'testing/' => 'Option 4',
+	'' => 'all deads',
+	'homepage/contact' => 'nationwide deals',
+	'test/' => 'entertainment',
+	'testing/' => 'food and dining',
+	'testing2/' => 'health and beauty',
+	'testing3/' => 'travel and hotel',
+	'testing4/' => 'home services',
 );
 ?>
-<ul id="main_menu">
+<ul>
 <?php
 foreach ($navigation_links as $link => $label) 
 {

@@ -48,7 +48,7 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 				"media/{$this->template_path}css/container.css" => 'all',
 				"media/{$this->template_path}css/header.css" => 'all',
 				"media/{$this->template_path}css/main_menu.css" => 'all',
-				"media/{$this->template_path}css/main_feature.css" => 'all',
+				"media/{$this->template_path}css/content.css" => 'all',
 			);
 
 			$scripts_upper = array(
@@ -61,9 +61,9 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 			  path: '/media/{$this->template_path}css/',
 			  dynamic: true,
 			  range: [
-				'0px to 760px = mobile.min.css',
-				'760px to 980px = 720.min.css',
-				'980px to 2600px = 960.min.css'
+				'0px to 1px = mobile.min.css',
+				'2px to 3px = 720.min.css',
+				'4px to 2600px = 960.min.css'
 			  ]
 			};
 				",

@@ -1,1 +1,7 @@
-<h1>smart<span class="border_color">LOCAL</span>social</h1>
+<?php echo HTML::image(
+	'media/template/cityscape/img/logo.png', 
+	array(
+		'id' => 'header_logo',
+		'alt' => 'smartlocalsocial',
+	)
+);?>

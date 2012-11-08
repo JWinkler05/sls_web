@@ -1,3 +1,3 @@
-<div id="cp_footer grid_16" style="position: relative !important">
+<div id="cp_footer" class="container_16">
 </div>
 
