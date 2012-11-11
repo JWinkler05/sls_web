@@ -18,5 +18,9 @@
 			<?php echo $content ?>
 			<?php echo View::factory('template/cityscape/components/footer')->render(); ?>
 		</div>
+<?php if (Kohana::$environment !== Kohana::PRODUCTION) {
+	echo '<br/>'.View::factory('profiler/stats'); 
+} ?>
+
 	</body>
 </html>

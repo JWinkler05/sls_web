@@ -12,7 +12,8 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 		$view->date = date('m/d/Y');
 		$view->id = $id;
 
-		
+		$view->ads_primary = json_decode(Request::factory('ads_primary/index')->execute());	
+		$view->ads_secondary = json_decode(Request::factory('ads_secondary/index')->execute());	
 		//$this->response->body($view);
 		$this->template->title = __('Welcome to smartlocalsocial.com');
 		
