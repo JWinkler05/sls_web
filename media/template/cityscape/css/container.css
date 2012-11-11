@@ -1,7 +1,9 @@
 * {
 	margin: 0px;
 	padding: 0px;
+/*
 	outline: 1px solid black;
+*/
 }
 
 body {
@@ -27,7 +29,4 @@ body {
 #container_main {
 	background-color: white;
 	padding-top: 35px;
-	height: 2000px;
 }
-
-
