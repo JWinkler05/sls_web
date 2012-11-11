@@ -132,7 +132,7 @@ Kohana::modules(array(
 #	));
 
 
-Route::set('dev', 'dev(<controller>(/<action>(/<id>)))')
+Route::set('dev', 'dev(/<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'homepage',
 		'action'     => 'index',
