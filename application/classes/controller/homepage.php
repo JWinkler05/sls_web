@@ -6,11 +6,6 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 	{
 		View::set_global('menu',TRUE);
 		$view = View::factory('pages/home');
-		$id = $this->request->param('id', NULL);
-
-		$view->title = 'The date is ';
-		$view->date = date('m/d/Y');
-		$view->id = $id;
 
 		$view->ads_primary = json_decode(Request::factory('ads_primary/index')->execute());	
 		$view->ads_secondary = json_decode(Request::factory('ads_secondary/index')->execute());	
