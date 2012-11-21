@@ -7,7 +7,7 @@
 }
 
 body {
-	background:url('/media/template/cityscape/img/bgimg.jpg') no-repeat center center fixed;
+	background:url('/media/tpl-cityscape/img/bgimg.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;

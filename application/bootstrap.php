@@ -119,6 +119,7 @@ Kohana::modules(array(
 	'userguide'  => MODPATH.'userguide',     // User guide and API documentation
 	'storage'    => MODPATH.'storage',       // Storage Driver (rackspace)
 	'minify'     => MODPATH.'minify',        // Minifier
+	'cityscape'  => MODPATH.'tpl-cityscape', // TEMPLATE: cityscape
 	));
 
 /**

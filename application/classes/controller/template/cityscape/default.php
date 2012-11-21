@@ -43,12 +43,6 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 		if ($this->auto_render)
 		{
 			$styles = array(
-				"media/{$this->template_path}css/screen.css" => 'screen, projection',
-				"media/{$this->template_path}css/print.css" => 'print',
-				"media/{$this->template_path}css/container.css" => 'all',
-				"media/{$this->template_path}css/header.css" => 'all',
-				"media/{$this->template_path}css/main_menu.css" => 'all',
-				"media/{$this->template_path}css/content.css" => 'all',
 			);
 
 			$scripts_upper = array(
@@ -58,7 +52,7 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 			$scripts_manual = array(
 				"
 			var ADAPT_CONFIG = {
-			  path: '/media/{$this->template_path}css/',
+			  path: '/modules/tpl-cityscape/media/css/',
 			  dynamic: true,
 			  range: [
 				'0px to 1px = mobile.min.css',
@@ -70,7 +64,6 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 			);
 
 			$scripts_lower = array(
-				"media/{$this->template_path}js/adapt.min.js",
 			);
 
 			$this->template->styles = array_merge( $this->template->styles, $styles );
