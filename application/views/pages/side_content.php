@@ -1,3 +1,4 @@
+<?php if (is_array($ads)) { ?>
 <div id="cp_side_content" class="grid_4">
 <?php foreach ($ads as $ad) { ?>
         <div class="grid_4 ad_small"><?php
@@ -19,5 +20,6 @@ echo '<br/>'.$ad->creative->expiration;
 echo '<br/>'.$ad->creative->description;
 echo '<br/>'.$ad->creative->detailed_offer;
         ?></div>
-<?php } ?>
+<?php } ?> 
 </div>
+<?php } ?>

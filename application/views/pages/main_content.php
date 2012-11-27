@@ -1,4 +1,4 @@
-<div id="cp_main_content" class="grid_12"> 
+<div id="cp_main_content" class="grid_<?php echo $main_grid.' '.$main_layout;?>">
 <?php foreach ($ads as $ad) { ?>
 	<div class="grid_4 ad_single"><?php 
 echo '<br/>'.$ad->creative->id;
