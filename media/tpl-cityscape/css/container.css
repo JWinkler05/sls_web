@@ -13,6 +13,10 @@ body {
 	background-size: cover;
 }
 
+a, a:hover {
+	text-decoration: none;
+}
+
 /* Status Bar */
 #container_status {
 	background-color: #141414;
@@ -29,4 +33,8 @@ body {
 #container_main {
 	background-color: white;
 	padding-top: 35px;
+}
+
+#cp_main_content.no-sidebar {
+	width: 960px;
 }

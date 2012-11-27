@@ -11,3 +11,16 @@
 	height: 77px;
 	display: block;
 }
+.market-intro {
+	float: right;
+	position: relative;
+	right: -286px;
+	top: 20px;
+	font-size: 17px;
+}
+.market {
+	font-weight: bold;
+}
+.note {
+	float: right;
+}
