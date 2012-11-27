@@ -24,17 +24,25 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 		$this->template->content = $view;
 	}
 	
-	public function action_home()
+	public function action_deal()
 	{
-		$this->template->title = __('Welcome to smartlocalsocial');
+		View::set_global('menu',TRUE);
+		$view = View::factory('pages/home');
+
+		$view->ads_primary = json_decode(Request::factory('ads_primary/index')->execute());
+		$view->ads_secondary = json_decode(Request::factory('ads_secondary/index')->execute());	
+
+		$view->main_grid = '16';
+		$view->main_layout = 'no-sidebar';
+
+		if (is_array($view->ads_secondary)) {
+			$view->main_grid = '12';
+			$view->main_layout = 'sidebar';
+		}
+
+		//$this->response->body($view);
+		$this->template->title = __('Welcome to smartlocalsocial.com');
 		
-		$this->template->content = View::factory('pages/home');
-	}
-
-	public function action_contact()
-	{
-		$this->template->title = __('Contact information for smartlocalsocial');
-
-		$this->template->content = View::factory('pages/contact');
+		$this->template->content = $view;
 	}
 }
