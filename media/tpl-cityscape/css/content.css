@@ -79,3 +79,70 @@
 	font-weight: bold;
 	color: #FFF;
 }
+
+.outergray {
+	background-color: #E8E8E8;
+	margin-bottom: 20px;
+	color: #444444;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: small;
+	text-align: center;
+}
+
+.innerwhite {
+	background-color: #FFFFFF;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 328px;
+	margin: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+.column {
+}
+.column h2, .column p {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.columnafter {
+}
+.mainimg {
+	height: 328px;
+	width: 450px;
+}
+.advdeal {
+	text-align:center;
+	color:#777;
+	font-size:16px;
+	line-height: 19px;
+	padding: 10px 5px;	
+}
+.regprice {
+	font-size:18px;
+	color:#36C;
+	font-weight: bold;
+	text-decoration: line-through;
+	padding-bottom: 5px;
+}
+.saleprice {
+	font-size:24px;
+	color: #F58B40;
+	font-weight:bold;
+}
+.fbicon {
+	background-image: url(images/fbicon.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	padding-left: 3px;
+}
+.columnaddy {
+	text-align:left;
+}
+.columnaddytitle {
+	font-size:16px;
+	color:#36C;
+	text-align: left;
+}
+div.grid_4.detail_offset {
+	width: 190px;
+}
