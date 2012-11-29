@@ -124,6 +124,8 @@ Kohana::modules(array(
 	'storage'    => MODPATH.'storage',       // Storage Driver (rackspace)
 	'minify'     => MODPATH.'minify',        // Minifier
 	'cityscape'  => MODPATH.'tpl-cityscape', // TEMPLATE: cityscape
+	'uniq'       => MODPATH.'uniq',          // Unique ID generator
+
 	));
 
 /**
