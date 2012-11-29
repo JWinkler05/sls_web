@@ -1,6 +1,6 @@
 <?php
 $navigation_links = array(
-	'' => 'all deads',
+	'' => 'all deals',
 	'homepage/contact' => 'nationwide deals',
 	'test/' => 'entertainment',
 	'testing/' => 'food and dining',
