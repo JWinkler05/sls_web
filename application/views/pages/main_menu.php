@@ -1,12 +1,12 @@
 <?php
 $navigation_links = array(
 	'' => 'all deals',
-	'homepage/contact' => 'nationwide deals',
-	'test/' => 'entertainment',
-	'testing/' => 'food and dining',
-	'testing2/' => 'health and beauty',
-	'testing3/' => 'travel and hotel',
-	'testing4/' => 'home services',
+	'?category=nationwide' => 'nationwide deals',
+	'?category=entertainment' => 'entertainment',
+	'?category=dining%20and%20food' => 'food and dining',
+	'?category=Personal%20Care' => 'health and beauty',
+	'?category=Collectibles' => 'travel and hotel',
+	'?category=home%20services' => 'home services',
 );
 ?>
 <ul>
