@@ -14,12 +14,14 @@
 .market-intro {
 	float: right;
 	position: relative;
-	right: -286px;
-	top: 20px;
+	right: -68px;
+	top: 15px;
 	font-size: 17px;
-}
-.market {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 28px;
 	font-weight: bold;
+	text-transform: capitalize;
+	color: #0068AC;
 }
 .note {
 	float: right;
