@@ -31,3 +31,6 @@
 [submodule "modules/minify"]
 	path = modules/minify
 	url = git://github.com/pocesar/minify-kohana.git
+[submodule "modules/uuid"]
+	path = modules/uuid
+	url = git@github.com:smartlocalsocial/uuid.git

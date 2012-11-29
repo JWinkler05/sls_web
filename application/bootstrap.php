@@ -70,7 +70,11 @@ if (isset($_SERVER['KOHANA_ENV']))
 /**
  * Set the environment string by the domain (defaults to 'development').
  */
-Kohana::$environment = ($_SERVER['SERVER_NAME'] !== 'dev.smartlocalsocial.com') ? Kohana::PRODUCTION : Kohana::DEVELOPMENT;
+$development_web_servers = array (
+	'dev.smartlocalsocial.com',
+	'devwww.smartlocalsocial.com',
+);
+Kohana::$environment = (!in_array($_SERVER['SERVER_NAME'],$development_web_servers)) ? Kohana::PRODUCTION : Kohana::DEVELOPMENT;
 
 /**
  * Initialize Kohana, setting the default options.
