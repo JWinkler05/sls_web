@@ -6,10 +6,10 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 	{
 		View::set_global('menu',TRUE);
 		$view = View::factory('pages/home');
-
-		$ads_primary = json_decode(Request::factory('ads_primary/index')->execute());
+		$params = $this->request->query();
+		$ads_primary = json_decode(Request::factory('ads_primary/index')->query($params)->execute());
 		$view->ads_primary = $ads_primary->results;
-		$ads_secondary = json_decode(Request::factory('ads_secondary/index')->execute());	
+		$ads_secondary = json_decode(Request::factory('ads_secondary/index')->query($params)->execute());	
 		$view->ads_secondary = $ads_secondary->results;
 
 		$view->main_grid = '16';

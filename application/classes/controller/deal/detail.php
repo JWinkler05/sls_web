@@ -11,7 +11,7 @@ class Controller_Deal_Detail extends Controller_Template_Cityscape_Default
 		$view = View::factory('pages/deal_detail');
 
 		$detail_return = json_decode(Request::factory('ads_detail/index')->query('di',$id)->execute());
-		$detail = $detail_return[0]->results->creative;
+		$detail = $detail_return->results['0']->creative;
 		$view->selected = $detail;
 		$view->id = $id; 
 		$ads_primary = json_decode(Request::factory('ads_primary/index')->execute());
