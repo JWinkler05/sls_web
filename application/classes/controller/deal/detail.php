@@ -11,10 +11,11 @@ class Controller_Deal_Detail extends Controller_Template_Cityscape_Default
 		$view = View::factory('pages/deal_detail');
 
 		$detail_return = json_decode(Request::factory('ads_detail/index')->query('di',$id)->execute());
-		$detail = $detail_return[0]->creative;
+		$detail = $detail_return[0]->results->creative;
 		$view->selected = $detail;
 		$view->id = $id; 
-		$view->ads = json_decode(Request::factory('ads_primary/index')->execute());
+		$ads_primary = json_decode(Request::factory('ads_primary/index')->execute());
+		$view->ads = $ads_primary->results; 
 		$view->main_grid = '16';
 		$view->main_layout = 'no-sidebar';		
 		//$this->response->body($view);

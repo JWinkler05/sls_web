@@ -7,8 +7,10 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 		View::set_global('menu',TRUE);
 		$view = View::factory('pages/home');
 
-		$view->ads_primary = json_decode(Request::factory('ads_primary/index')->execute());
-		$view->ads_secondary = json_decode(Request::factory('ads_secondary/index')->execute());	
+		$ads_primary = json_decode(Request::factory('ads_primary/index')->execute());
+		$view->ads_primary = $ads_primary->results;
+		$ads_secondary = json_decode(Request::factory('ads_secondary/index')->execute());	
+		$view->ads_secondary = $ads_secondary->results;
 
 		$view->main_grid = '16';
 		$view->main_layout = 'no-sidebar';
