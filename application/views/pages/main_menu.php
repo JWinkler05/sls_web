@@ -4,9 +4,9 @@ $navigation_links = array(
 	'?category=nationwide' => 'nationwide deals',
 	'?category=entertainment' => 'entertainment',
 	'?category=dining%20and%20food' => 'food and dining',
-	'?category=Health%20and%20Beauty' => 'health and beauty',
-	'?category=Collectibles' => 'travel and hotel',
-	'?category=Personal%20Care' => 'home services',
+	'?category=health%20and%20beauty' => 'health and beauty',
+	'?category=travel%20and%20hotel' => 'travel and hotel',
+	'?category=home%20services' => 'home services',
 );
 ?>
 <ul>
