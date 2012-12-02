@@ -1,6 +1,7 @@
 <?php 
 	$view = View::factory('pages/main_content');
 	$view->ads = $ads_primary;
+	$view->full_ads = $full_ads;
 	$view->main_grid = $main_grid;
 	$view->main_layout = $main_layout;
 	echo $view->render(); 

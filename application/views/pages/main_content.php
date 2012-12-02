@@ -1,5 +1,13 @@
 <div id="cp_main_content" class="grid_<?php echo $main_grid.' '.$main_layout;?>">
-<?php foreach ($ads as $ad) {
+<?php 
+if (!is_array($ads)) { 
+	$ads  = $full_ads;
+?>
+	<div class="noads">
+		<p>Sorry, No ads exist for this category</p>
+	</div>
+<?php }
+foreach ($ads as $ad) {
 	// Set class on each ad based on size 
 	switch ($ad->creative->ad_size){
 		case 1:
