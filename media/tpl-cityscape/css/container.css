@@ -26,13 +26,16 @@ a, a:hover {
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+	top: 0px;
 }
 
 /* Main Container */
 
 #container_main {
 	background-color: white;
-	padding-top: 35px;
+	padding: 10px 10px 0px 10px;
+	margin-top: 60px;
+	border-radius: 15px;
 }
 
 #cp_main_content.no-sidebar {
