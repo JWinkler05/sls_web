@@ -113,19 +113,19 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	// 'auth'       => MODPATH.'auth',       // Basic authentication
-	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
-	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-	// 'database'   => MODPATH.'database',   // Database access
-	// 'image'      => MODPATH.'image',      // Image manipulation
-	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
-	// 'unittest'   => MODPATH.'unittest',   // Unit testing
-	'userguide'  => MODPATH.'userguide',     // User guide and API documentation
-	'storage'    => MODPATH.'storage',       // Storage Driver (rackspace)
-	'minify'     => MODPATH.'minify',        // Minifier
-	'cityscape'  => MODPATH.'tpl-cityscape', // TEMPLATE: cityscape
-	'uniq'       => MODPATH.'uniq',          // Unique ID generator
+	'auth'		=> MODPATH.'auth',		// Basic authentication
 	'oauth2'	=> MODPATH.'oauth2',		// Basic authentication
+	'cache'		=> MODPATH.'cache',		// Caching with multiple backends
+	// 'codebench'	=> MODPATH.'codebench',		// Benchmarking tool
+	// 'database'	=> MODPATH.'database', 		// Database access
+	// 'image'	=> MODPATH.'image',		// Image manipulation
+	// 'orm'	=> MODPATH.'orm',		// Object Relationship Mapping
+	// 'unittest'	=> MODPATH.'unittest',		// Unit testing
+	'userguide'  => MODPATH.'userguide',		// User guide and API documentation
+	'storage'    => MODPATH.'storage',		// Storage Driver (rackspace)
+	'minify'     => MODPATH.'minify',		// Minifier
+	'cityscape'  => MODPATH.'tpl-cityscape',	// TEMPLATE: cityscape
+	'uniq'       => MODPATH.'uniq',			// Unique ID generator
 
 	));
 
