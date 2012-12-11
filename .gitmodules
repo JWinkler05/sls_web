@@ -31,3 +31,6 @@
 [submodule "modules/minify"]
 	path = modules/minify
 	url = git@github.com:smartlocalsocial/minify-kohana.git
+[submodule "modules/oauth2"]
+	path = modules/oauth2
+	url = git@github.com:smartlocalsocial/kohana-oauth2.git

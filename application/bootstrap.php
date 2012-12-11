@@ -125,6 +125,7 @@ Kohana::modules(array(
 	'minify'     => MODPATH.'minify',        // Minifier
 	'cityscape'  => MODPATH.'tpl-cityscape', // TEMPLATE: cityscape
 	'uniq'       => MODPATH.'uniq',          // Unique ID generator
+	'oauth2'	=> MODPATH.'oauth2',		// Basic authentication
 
 	));
 
