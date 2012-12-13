@@ -13,24 +13,23 @@ class Controller_Session extends Controller {
 	{
 		if ($this->request->method() == Request::POST)
 		{
-			$consumer = OAuth2_Consumer::factory('example');
-
-			try
-			{
-				$token = $consumer->request_token(array(
-					'username' => $this->request->post('username'),
-					'password' => $this->request->post('password'),
-				));
-
+			$success = Auth::instance()->login($this->request->post('username'),$this->request->post('password'),TRUE);
+			if ($success) {
 				$this->request->redirect(''); // Redirect to homepage...
-			}
-			catch (OAuth2_Exception_InvalidGrant $e)
-			{
-				echo "Invalid password";
+			} else {
+				echo "Invalid username or password";
 			}
 		}
 
 		$this->response->body(View::factory('session/login'));
+	}
+
+	public function action_logout()
+	{
+		if (Auth::instance()->logged_in()) {
+			Auth::instance()->logout();
+			$this->request->redirect(''); // Redirect to homepage...
+		}
 	}
 
 	public function action_me()
