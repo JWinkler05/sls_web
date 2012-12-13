@@ -18,7 +18,7 @@ Header append Vary User-Agent
 ExpiresActive On
 
 # Default directive
-ExpiresDefault "access plus 1 month"
+#ExpiresDefault "access plus 1 month"
 
 # My favicon
 ExpiresByType image/x-icon "access plus 1 year"
