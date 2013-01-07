@@ -175,8 +175,8 @@ class Auth_Internal extends Auth {
 		if ($user === $default)
 		{
 			// check for "remembered" login
-			if (($user = $this->auto_login()) === FALSE)
-				return $default;
+			//if (($user = $this->auto_login()) === FALSE)
+			//	return $default;
 		}
 
 		return $user;
