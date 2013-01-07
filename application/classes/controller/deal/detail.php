@@ -5,12 +5,12 @@ class Controller_Deal_Detail extends Controller_Template_Cityscape_Default
 	public function action_index()
 	{
 		$params = $this->request->query();
-		$id = $params['di'];
+		$id = $params['id'];
 
 		View::set_global('menu',TRUE);
 		$view = View::factory('pages/deal_detail');
 
-		$detail_return = json_decode(Request::factory('ads_detail/index')->query('di',$id)->execute());
+		$detail_return = json_decode(Request::factory('ads_detail/index')->query('id',$id)->execute());
 		$detail = $detail_return->results['0']->creative;
 		$view->selected = $detail;
 		$view->id = $id; 

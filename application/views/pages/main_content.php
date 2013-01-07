@@ -21,7 +21,7 @@ foreach ($ads as $ad) {
 ?>
 
 	<div class="<?php echo $ad_class; ?>">
-		<a href="deal_detail?di=<?php echo $ad->creative->id; ?>">
+		<a href="deal_detail?id=<?php echo $ad->creative->creative_id; ?>">
 			<div class="ad_type"><?php echo $ad->creative->ad_type ?></div>
 			<img class="ad_image" src="<?php echo "/media/ad_images/{$ad->creative->ad_image_name}" ?>"/>
 			<div class="ad_body">

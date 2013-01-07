@@ -17,10 +17,10 @@ foreach ($ads as $ad) {
 $count++;
 ?>
 
-	<div class="row_<?php echo $ad->creative->creatives_id; ?>">
+	<div class="row_<?php echo $ad->creative->creative_id; ?>">
 		<div class=""><?php echo $count; ?>.) 
-			<a href='admin_creative_edit?id=<?php echo $ad->creative->creatives_id; ?>'>Edit</a> | 
-			<a href='admin_creative_delete?id=<?php echo $ad->creative->creatives_id; ?>'>Delete</a>: 
+			<a href='admin_creative_edit?id=<?php echo $ad->creative->creative_id; ?>'>Edit</a> | 
+			<a href='admin_creative_delete?id=<?php echo $ad->creative->creative_id; ?>'>Delete</a>: 
 			<?php echo $ad->creative->business_name.' - '.$ad->creative->sms_code; ?>
 		</div>
 <?php ?>

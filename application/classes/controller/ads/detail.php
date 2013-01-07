@@ -12,7 +12,7 @@ class Controller_Ads_Detail extends Controller
 		
 		$params = $this->request->query();
 
-		$hmvc = Request::factory("http://$api_server/creatives/get_details_by_id?di={$params['di']}")
+		$hmvc = Request::factory("http://$api_server/creatives/get_details_by_id?id={$params['id']}")
 			->execute();
 
 		$this->response->body($hmvc);
