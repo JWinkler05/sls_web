@@ -5,6 +5,7 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 	public function action_index()
 	{
 		$params = $this->request->query();
+		$posted = $this->request->post();
 		$id = $params['id'];
 
 		$view = View::factory('pages/admin/creative/edit');
@@ -13,6 +14,7 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 		$detail = $detail_return->results['0']->creative;
 		$view->selected = $detail;
 		$view->id = $id; 
+		$view->posted = $posted;
 		//$this->response->body($view);
 		$this->template->title = __('smartlocalsocial.com: ' . $detail->business_name . $detail->offer_in_short);
 		

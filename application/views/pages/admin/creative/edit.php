@@ -78,10 +78,32 @@ echo $form = Formo::form()
 			$attr
 		)
 	);
-if ($form->load($_POST)->validate())
-{
-/* Add saving logic here */
-}
+	if ($form->load($_POST)->validate())
+	{
+		$fields = array ('fields' => $posted);
+		unset($fields['fields']['submit']);
+		if (Kohana::$environment === Kohana::PRODUCTION){
+			$api_server = 'api.smartlocalsocial.com';
+			$web_server = 'www.smartlocalsocial.com';
+		}else{
+			$api_server = 'devapi.smartlocalsocial.com';
+			$web_server = 'devwww.smartlocalsocial.com';
+		}
+		$request = Request::factory("http://$api_server/creatives/{$selected->creative_id}")
+			->method(Request::PUT)
+			->body(json_encode($fields))
+			->headers('Content-Type', 'application/json');
+
+		$response = $request->execute();
+		sleep(1);
+?>
+<script type="text/javascript">
+<!--
+window.location = "<?php echo "http://$web_server/admin_creative_edit?id={$selected->creative_id}?updated"?>"
+//-->
+</script>
+<?php
+	}
 ?>
 	</div>
 	<p>Single Column Ad preview</p>
