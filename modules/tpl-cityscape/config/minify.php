@@ -7,6 +7,7 @@ return array(
 	),
         'css' => array(
                 '//media/tpl-cityscape/css/container.css',
+                '//media/tpl-cityscape/css/forms.css',
                 '//media/tpl-cityscape/css/header.css',
                 '//media/tpl-cityscape/css/main_menu.css',
                 '//media/tpl-cityscape/css/content.css',
