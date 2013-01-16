@@ -127,6 +127,7 @@ Kohana::modules(array(
 	'minify'     => MODPATH.'minify',		// Minifier
 	'cityscape'  => MODPATH.'tpl-cityscape',	// TEMPLATE: cityscape
 	'uniq'       => MODPATH.'uniq',			// Unique ID generator
+	'hotfixes'	=> MODPATH.'hotfixes',		// Hotfixes to used repos
 
 	));
 
