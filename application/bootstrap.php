@@ -128,6 +128,7 @@ Kohana::modules(array(
 	'cityscape'	=> MODPATH.'tpl-cityscape',	// TEMPLATE: cityscape
 	'uniq'		=> MODPATH.'uniq',		// Unique ID generator
 	'hotfixes'	=> MODPATH.'hotfixes',		// Hotfixes to used repos
+	'mongodb'	=> MODPATH.'mongodb',		// MongoDB wrapper
 
 	));
 

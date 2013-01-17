@@ -37,3 +37,6 @@
 [submodule "modules/formo"]
 	path = modules/formo
 	url = git@github.com:smartlocalsocial/kohana-formo.git
+[submodule "modules/mongodb"]
+	path = modules/mongodb
+	url = git@github.com:smartlocalsocial/mongodb-php-odm.git
