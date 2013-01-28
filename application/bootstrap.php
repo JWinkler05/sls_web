@@ -2,6 +2,7 @@
 
 // -- Environment setup --------------------------------------------------------
 
+
 // Load the core Kohana class
 require SYSPATH.'classes/kohana/core'.EXT;
 
