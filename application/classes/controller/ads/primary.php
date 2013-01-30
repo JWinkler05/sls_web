@@ -3,25 +3,27 @@
 class Controller_Ads_Primary extends Controller
 {
 	private $session;
-	public function action_index()
-	{
-		$location = NULL;
-		$category = NULL;
 
 	public function before() {
 		parent::before();
-		$params = $this->request->query();
 
 		// Grab session instance set to variable
 		$this->session = Session::instance();
 	}
-		if (isset($params['location'])){
-			$location = 'location='.$params['location'];
-		}
 
-		if (isset($params['category'])){
-			$category = 'category='.$params['category'];
-		}
+	public function action_index()
+	{
+		// If rand cookie is not present set cookie and apply rand
+		//if (!Cookie::get('sls_a',NULL)) {
+		//	$rand = 'rand=1';
+		//	Cookie::$expiration = Date::DAY;
+		//	Cookie::set('sls_a', UNIQ::gen());
+		//}else{
+			$rand = 'rand=0';
+		//}
+		
+		$metro = 'metro='.$this->session->get('visitor_metro',NULL);
+		$category = 'category='.$this->session->get('visitor_category',NULL);
 
 		if (Kohana::$environment === Kohana::PRODUCTION){
 			$api_server = 'api.smartlocalsocial.com';
@@ -29,7 +31,7 @@ class Controller_Ads_Primary extends Controller
 			$api_server = 'devapi.smartlocalsocial.com';
 		}
 
-		$hmvc = Request::factory("http://$api_server/creatives/get_primary_by_location?$location&$category")
+		$hmvc = Request::factory("http://$api_server/creatives?$metro&$category&type=primary&$rand")
 			->execute();
 
 		$this->response->body($hmvc);
