@@ -4,6 +4,8 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 {
 	public function action_index()
 	{
+		// Get the session instance
+		$session = Session::instance();
 		$full_ads = NULL;
 		View::set_global('menu',TRUE);
 		$view = View::factory('pages/home');

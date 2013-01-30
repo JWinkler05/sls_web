@@ -2,13 +2,19 @@
 
 class Controller_Ads_Primary extends Controller
 {
+	private $session;
 	public function action_index()
 	{
 		$location = NULL;
 		$category = NULL;
 
+	public function before() {
+		parent::before();
 		$params = $this->request->query();
 
+		// Grab session instance set to variable
+		$this->session = Session::instance();
+	}
 		if (isset($params['location'])){
 			$location = 'location='.$params['location'];
 		}
