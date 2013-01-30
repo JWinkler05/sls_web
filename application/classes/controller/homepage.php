@@ -15,13 +15,16 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 		if (!is_array($ads_primary)) {
 			$full_ads = json_decode(Request::factory('ads_primary/index')->execute());
 		}
-		$view->full_ads = $full_ads->results;	
 		$ads_secondary = json_decode(Request::factory('ads_secondary/index')->query($params)->execute());	
-		$view->ads_secondary = $ads_secondary->results;
 
+		// Set view variables for ad results and layout
+		$view->full_ads = $full_ads->results;
+		$view->ads_secondary = $ads_secondary->results;
 		$view->main_grid = '16';
 		$view->main_layout = 'no-sidebar';
 
+		// Pass session to view
+		$view->session = $session;
 		if (is_array($view->ads_secondary)) {
 			$view->main_grid = '12';
 			$view->main_layout = 'sidebar';
