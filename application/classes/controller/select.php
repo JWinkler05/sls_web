@@ -42,10 +42,17 @@ class Controller_Select extends Controller {
 
 			// Set the metro code / city
 			$metro_code = $location_result['metro_code'];
+			
+			if (!in_array($metro_code,$metro_list)) {
+				$metro_code = '535';
+			}
 
 			// Set the city and metro to a session variable
 			$session->set('visitor_metro',$metro_code);
-			$session->set('visitor_city',$metro_list["{$metro_code}"]);
+			$session->set('visitor_city',$metro_list["$metro_code"]);
+
+			// TODO::make select controller load before ads, then remove this hack
+			$this->request->redirect(URL::base()); 
 		}
 
 		// Create the markets dropdown array
