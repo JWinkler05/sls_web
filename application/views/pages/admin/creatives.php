@@ -1,4 +1,4 @@
-<div id="cp_main_content" class="grid_16">
+<div id="cp_main" class="grid_16">
 <?php 
 if (!is_array($ads)) { 
 	$ads  = $full_ads;
@@ -18,12 +18,15 @@ $count++;
 ?>
 
 	<div class="row_<?php echo $ad->creative->creative_id; ?>">
-		<div class=""><?php echo $count; ?>.) 
+		<div class=""><?php echo sprintf('%02u', $count); ?>.) 
 			<a href='admin_creative_edit?id=<?php echo $ad->creative->creative_id; ?>'>Edit</a> | 
+			<a href='admin_creative_images?id=<?php echo $ad->creative->creative_id; ?>'>Images</a> | 
+			<a href='admin_creative_markets?id=<?php echo $ad->creative->creative_id; ?>'>Markets</a> | 
+			<a href='admin_creative_categories?id=<?php echo $ad->creative->creative_id; ?>'>Categories</a> | 
+			<a href='admin_creative_tags?id=<?php echo $ad->creative->creative_id; ?>'>Tags</a> | 
 			<a href='admin_creative_delete?id=<?php echo $ad->creative->creative_id; ?>'>Delete</a>: 
 			<?php echo $ad->creative->business_name.' - '.$ad->creative->sms_code; ?>
 		</div>
-<?php ?>
 	</div>
 <?php } ?>
 	<div class="create_new">
