@@ -38,4 +38,32 @@ class UNIQ {
 		return sha1($addr . $pid . $_SERVER['REQUEST_TIME'] . microtime(true) . ++$counter);
 	}
 
+	/**
+	 * Generates a valid unique id based on PID, server IP, Server request
+	 * time, and micro second with a folder seperator at the desired depth.
+	 *
+	 * @param   int    depth of the split
+	 *
+	 * @return  array  an array of the split unique id
+	 */
+	public static function gen_split($depth = NULL)
+	{
+		$uniq = self::gen();
+		if (is_numeric($depth))
+		{
+			return array( 
+				'part1' => substr($uniq,0,$depth),
+				'part2' => substr($uniq,$depth),
+				'full' => $uniq
+			);
+			return $parts;
+		} else {
+			return array(
+				'part1' => $uniq,
+				'part2' => NULL,
+				'full' => $uniq
+			);
+		}
+	}
+
 } // End UNIQ
