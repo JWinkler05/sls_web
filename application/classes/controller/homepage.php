@@ -29,8 +29,9 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 		}
 
 		// Get secondary ads by market
-		$ads_secondary = json_decode(Request::factory('ads_secondary/index')->query($params)->execute());	
-		$view->ads_secondary = $ads_secondary->results;
+		#$ads_secondary = json_decode(Request::factory('ads_secondary/index')->query($params)->execute());	
+		#$view->ads_secondary = $ads_secondary->results;
+		$view->ads_secondary = NULL;
 
 		// Set view variables for ad layout
 		$view->main_grid = '16';
