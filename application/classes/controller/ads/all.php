@@ -6,13 +6,7 @@ class Controller_Ads_All extends Controller
 	{
 		$params = $this->request->query();
 
-		if (Kohana::$environment === Kohana::PRODUCTION){
-			$api_server = 'api.smartlocalsocial.com';
-		}else{
-			$api_server = 'devapi.smartlocalsocial.com';
-		}
-
-		$hmvc = Request::factory("http://$api_server/creatives/get_all_creatives")
+		$hmvc = Request::factory('http://'.Servers::$api_server.'/creatives')
 			->execute();
 
 		$this->response->body($hmvc);
