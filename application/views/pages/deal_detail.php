@@ -7,7 +7,7 @@
 				<p><?php echo $selected->sms_code; ?></p>
 			</div>
 			<div class="mainimg grid_8">
-				<img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/{$selected->ad_image_name}" ?>">
+				<img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/{$detail_image->local_location}" ?>">
 			</div>
 			<div class="columnafter grid_4 detail_offset">
 				<p>Offer Details</p>

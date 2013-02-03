@@ -13,6 +13,12 @@ class Controller_Deal_Detail extends Controller_Template_Cityscape_Default
 		$detail_return = json_decode(Request::factory('ads_detail/index')->query('id',$id)->execute());
 		$detail = $detail_return->results['0']->creative;
 		$view->selected = $detail;
+
+
+		$image_request = json_decode(Request::factory('http://'.Servers::$api_server.'/images/'.$detail->id)->query(array('type' => 'detail'))->execute());
+		$detail_image = $image_request->results['0']->image;
+		$view->detail_image = $detail_image;
+
 		$view->id = $id; 
 		$ads_primary = json_decode(Request::factory('ads_primary/index')->execute());
 		if (!$ads_primary->results) {
