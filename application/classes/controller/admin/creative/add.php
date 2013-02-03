@@ -38,13 +38,6 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 			$fields = array ('fields' => $posted);
 			unset($fields['fields']['submit']);
 
-			// Set API server based on environment
-			if (Kohana::$environment === Kohana::PRODUCTION){
-				$api_server = 'api.smartlocalsocial.com';
-			}else{
-				$api_server = 'devapi.smartlocalsocial.com';
-			}
-
 			// Execute put request to create record
 			//$request = Request::factory("http://$api_server/creatives/{$detail->creative_id}")
 			//	->method(Request::PUT)
