@@ -19,21 +19,20 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 
 		// Retrieve primary ads by market
 		$ads_primary = json_decode(Request::factory('ads_primary/index')->query($params)->execute());
-
-		// Remove results encapsulation
 		$view->ads_primary = $ads_primary->results;
-
+		$view->full_ads = NULL;
+		
 		// If no ads are provided for current market, choose all markets
-		if (!is_array($ads_primary)) {
-			$full_ads = json_decode(Request::factory('ads_primary/index')->execute());
+		if (!$ads_primary->results) {
+			$full_ads = json_decode(Request::factory('ads_primary/index')->query(array('metro'=>'all'))->execute());
+			$view->full_ads = $full_ads->results;
 		}
 
 		// Get secondary ads by market
 		$ads_secondary = json_decode(Request::factory('ads_secondary/index')->query($params)->execute());	
-
-		// Set view variables for ad results and layout
-		$view->full_ads = $full_ads->results;
 		$view->ads_secondary = $ads_secondary->results;
+
+		// Set view variables for ad layout
 		$view->main_grid = '16';
 		$view->main_layout = 'no-sidebar';
 

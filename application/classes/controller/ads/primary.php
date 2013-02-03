@@ -3,38 +3,46 @@
 class Controller_Ads_Primary extends Controller
 {
 	private $session;
+	private $querystring;
 
 	public function before() {
 		parent::before();
 
 		// Grab session instance set to variable
 		$this->session = Session::instance();
+
+		// Grab querystring params
+		$this->querystring = $this->request->query();
 	}
 
 	public function action_index()
 	{
-		// If rand cookie is not present set cookie and apply rand
-		//if (!Cookie::get('sls_a',NULL)) {
-		//	$rand = 'rand=1';
-		//	Cookie::$expiration = Date::DAY;
-		//	Cookie::set('sls_a', UNIQ::gen());
-		//}else{
-			$rand = 'rand=0';
-		//}
-		
-		$metro = 'metro='.$this->session->get('visitor_metro',NULL);
-		$category = 'category='.$this->session->get('visitor_category',NULL);
+		$metro = '';
+		$category = '';
 
-		if (Kohana::$environment === Kohana::PRODUCTION){
-			$api_server = 'api.smartlocalsocial.com';
-		}else{
-			$api_server = 'devapi.smartlocalsocial.com';
+		// Get metro from session
+		if ($this->session->get('visitor_metro',NULL)) {
+			$metro = '&metro='.$this->session->get('visitor_metro',NULL);
 		}
 
-		$hmvc = Request::factory("http://$api_server/creatives?$metro&$category&type=primary&$rand")
+		// Overide metro to blank if all is provided 
+		if (isset($this->querystring['metro'])) {
+			if ($this->querystring['metro'] === 'all') {
+				$metro = '';
+			}
+		}
+
+		// Get catetory from session
+		if ($this->session->get('visitor_category',NULL)) {
+			$category = '&category='.$this->session->get('visitor_category',NULL);
+		}
+
+		// Generate API request
+		$api_request = Request::factory('http://'.Servers::$api_server."/creatives?type=primary$metro$category")
 			->execute();
 
-		$this->response->body($hmvc);
+		// Set return response
+		$this->response->body($api_request);
 	}
 	
 }
