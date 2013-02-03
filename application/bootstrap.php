@@ -120,7 +120,7 @@ Kohana::modules(array(
 	'formo'		=> MODPATH.'formo',		// Formo form generation
 	// 'codebench'	=> MODPATH.'codebench',		// Benchmarking tool
 	// 'database'	=> MODPATH.'database', 		// Database access
-	// 'image'	=> MODPATH.'image',		// Image manipulation
+	'image'		=> MODPATH.'image',		// Image manipulation
 	// 'orm'	=> MODPATH.'orm',		// Object Relationship Mapping
 	// 'unittest'	=> MODPATH.'unittest',		// Unit testing
 	'userguide'	=> MODPATH.'userguide',		// User guide and API documentation
