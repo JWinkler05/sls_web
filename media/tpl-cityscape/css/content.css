@@ -93,7 +93,7 @@
 	background-color: #FFFFFF;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	height: 328px;
+	height: 368px;
 	margin: 20px;
 	padding-bottom: 20px;
 	padding-top: 20px;
@@ -105,6 +105,7 @@
 	margin-bottom: 10px;
 }
 .columnafter {
+    margin-top: 100px;
 }
 .mainimg {
 	height: 328px;
@@ -115,17 +116,17 @@
 	color:#777;
 	font-size:16px;
 	line-height: 19px;
-	padding: 10px 5px;	
+	padding: 1px 5px;
 }
 .regprice {
-	font-size:18px;
+	font-size:36px;
 	color:#36C;
 	font-weight: bold;
 	text-decoration: line-through;
-	padding-bottom: 5px;
+	padding-bottom: 15px;
 }
 .saleprice {
-	font-size:24px;
+	font-size:46px;
 	color: #F58B40;
 	font-weight:bold;
 }
@@ -133,7 +134,7 @@
 	background-image: url(images/fbicon.jpg);
 	background-repeat:no-repeat;
 	background-position:left;
-	padding-left: 3px;
+	padding-left:3px;
 }
 .columnaddy {
 	text-align:left;
@@ -145,6 +146,7 @@
 }
 div.grid_4.detail_offset {
 	width: 190px;
+        vertical-align: text-top;
 }
 .ad_type {
 	font-family: Arial, Helvetica, sans-serif;
@@ -158,4 +160,20 @@ div.grid_4.detail_offset {
 	font-weight: bold;
 	text-decoration: none;
 	margin: 20px;
+}
+
+.sms_code {
+    padding-top: 1px;
+    font-weight: bold;
+       color: #F58B40;
+}
+
+h1.buistitle {
+    padding-bottom: 5px;
+    color: #36C;
+} 
+
+p.sms_blurb {
+    font-weight: bold;
+    color: #36C;
 }
