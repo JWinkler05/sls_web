@@ -71,15 +71,8 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 			$fields = array ('fields' => $posted);
 			unset($fields['fields']['submit']);
 
-			// Set API server based on environment
-			if (Kohana::$environment === Kohana::PRODUCTION){
-				$api_server = 'api.smartlocalsocial.com';
-			}else{
-				$api_server = 'devapi.smartlocalsocial.com';
-			}
-
 			// Execute put request to update record
-			$request = Request::factory("http://$api_server/creatives/{$detail->creative_id}")
+			$request = Request::factory('http://'.Servers::$api_server."/creatives/{$detail->creative_id}")
 				->method(Request::PUT)
 				->body(json_encode($fields))
 				->headers('Content-Type', 'application/json');

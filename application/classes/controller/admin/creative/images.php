@@ -4,21 +4,59 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 {
 	public function action_index()
 		{
+		$ad_image = NULL;
+		$detail_image = NULL;
+
+		$querystring = $this->request->query();
+		$id = Arr::get($querystring,'id',NULL);
+
 		// Create view for the edit page
 		$view = View::factory('pages/admin/creative/images');
+		$view->ad_image = NULL;
+		$view->detail_image = NULL;
 
 		// TODO::need to fix validation of image uploads
+		// Rule definitions for image forms
 		$rules = array (
 			'Upload::not_empty' => NULL,
 			'Upload::type'      => array(':value', 'JPG, PNG or GIF' => array('jpg', 'png', 'gif')),
 			'Upload::size'      => array(':value', '1M')
 		);
 
-		$form = Formo::form()
-			->add('ad_image', 'file')
-			->add('detail_image', 'file')
-			->add('upload','submit');
+		$form = Formo::form();
+
+		$images_request = json_decode(Request::factory('api_images_get/index')->query(array('id' => $id))->execute());
+
+		$images = $images_request->results;
+
+		if (!isset($images->message)) {
+			foreach ($images as $image) {
+				switch ($image->image->image_type) {
+					case 'ad':
+						$view->ad_image = $image->image->local_location;
+						$ad_image = true;
+						break;
+					case 'detail':
+						$view->detail_image = $image->image->local_location;
+						$detail_image = true;
+						break;
+				}	
+			}
+		}
+
+		if (!$ad_image) {
+			$form->add('ad_image', 'file');
 			//->rules('logo', $rules);
+		}
+
+		if (!$detail_image) {
+			$form->add('detail_image', 'file');
+			//->rules('logo', $rules);
+		}
+
+		if (!$ad_image or !$detail_image) {
+			$form->add('upload','submit');
+		}
 
 		if ($form->load()->validate())
 		{
