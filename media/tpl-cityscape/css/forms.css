@@ -94,3 +94,16 @@ form h2 {
     text-transform: capitalize;
     font-size: 18px;
 }
+
+form #ad_id {
+    padding-top: 10px;
+}
+
+form #detail_id {
+    padding-top: 10px;
+}
+
+form #btnSubmit {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

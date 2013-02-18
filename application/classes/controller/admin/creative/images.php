@@ -45,29 +45,55 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 		}
 
 		if (!$ad_image) {
+
+                        $form->add('ad_img_name', array('label' => "Ad Image's Name",'css' => array('id' => 'ad_id')));
+			//$form->add('ad_image', array('type' => 'file', 'label' => "Ad's File Location"));
 			$form->add('ad_image', 'file');
 			//->rules('logo', $rules);
 		}
-
 		if (!$detail_image) {
+                        $form->add('detail_img_name', array('label' => "Detail Image's Name",'css' => array('id' => 'detail_id')));
+			//$form->add('detail_image', array('type' => 'file', 'label' => "Detail's File Location"));
 			$form->add('detail_image', 'file');
 			//->rules('logo', $rules);
 		}
 
 		if (!$ad_image or !$detail_image) {
-			$form->add('upload','submit');
+			$form->add('Upload', array('type' => 'submit','css' => array('id' => 'btnSubmit')));
 		}
 
 		if ($form->load()->validate())
 		{
 			// Get each file to be uploaded and upload them
 			$ad_image = $form->ad_image->val();
-			$ad_filename = $this->_save_image($ad_image,220,220);
-			
+                        
+                        //JAW 2/17/2013 - Changed to get array, then parse for file path and full id
+			$ad_array = $this->_save_image($ad_image,220,220);
+			$ad_filename = $ad_array[0];
+                        $ad_full = $ad_array[1];
+                        
 			$detail_image = $form->detail_image->val();
-			$detail_filename = $this->_save_image($detail_image,440,440);
+                        //JAW 2/17/2013 - Changed to get array, then parse for file path and full id
+			$detail_array = $this->_save_image($detail_image,440,440);
+                        $detail_filename = $detail_array[0];
+                        $detail_full = $detail_array[1];
 
 			// TODO::save to creative
+                        // JAW 2/17/2013- Call the save function
+                        $this -> _write_save_final(array(
+                            'image_id' => $ad_full, 
+                            'image_name' => $form-> ad_img_name -> val(),
+                            'image_type' => 'ad',
+                            'local_location' => $ad_filename
+                        ));
+                        $this -> _write_save_final(array(
+                            'image_id' => $detail_full,
+                            'image_name' => $form-> detail_img_name -> val() ,
+                            'image_type' => 'detail',
+                            'local_location' => $detail_filename
+                        ));
+                        
+                        //JAW 2/17/2013 - Access the db call to save the item in the db.
 			$view->ad_image = $ad_filename;
 			$view->detail_image = $detail_filename;
 
@@ -116,6 +142,7 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 
 		if ($file = Upload::save($image, NULL, $directory))
 		{
+                    
 		    $filename = strtolower($filename_split['part2']).'.jpg';
 	 
 		    Image::factory($file)
@@ -124,11 +151,33 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 	 
 		    // Delete the temporary file
 		    unlink($file);
-	 
-		    return $filename_split['part1'].'/'.$filename;
+                      
+                    //JAW 2/17/2013 - Changed to return an array, holding the structured path and id.
+                    $arrImgFileInfo = array($filename_split['part1'].'/'. $filename, $filename_split['full']);
+		    return $arrImgFileInfo;
 		}
 	 
 		return FALSE;
 	    }
+            
+            //JAW 2-17-2013 -- This function will call the save to the DB of the information.
+            protected function _write_save_final($fields)
+            {
+                $querystring = $this->request->query();
+		$id = Arr::get($querystring,'id',NULL);
+                
+               // Execute put request to update record
+               $request = Request::factory('http://'.Servers::$api_server."/creatives/$id/images/")
+			->method(Request::POST)
+			->body(json_encode($fields))
+			->headers('Content-Type', 'application/json');
+//		var_dump('http://'.Servers::$api_server."/creatives/$id/images/");
+//                var_dump(json_encode($fields));die();
+			$response = $request->execute();
+                
+                        // Redirect to this page, updates current data, removes chance
+			// of double posts as well
+			$this->request->redirect($this->request->uri().'?id='.$id);
+            }
 	
 }
