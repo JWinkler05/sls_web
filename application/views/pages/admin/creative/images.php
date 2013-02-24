@@ -4,11 +4,11 @@
 		<?php
 		// Display the edit form (from controller)
 		if ($ad_image) { 
-			echo '<div>ad_image | <a href="admin_creative_image_delete?id=sdf">Delete</a> | '.HTML::image('/media/ad_images/'.$ad_image).'</div>';
+			echo '<div>ad_image | <a href="creative_image_delete?id=sdf">Delete</a> | '.HTML::image('/media/ad_images/'.$ad_image).'</div>';
 			echo PHP_EOL;
 		}
 		if ($detail_image) {
-			echo '<div>detail_image | <a href="admin_creative_image_delete?id=sdf">Delete</a> | '.HTML::image('/media/ad_images/'.$detail_image).'</div>';
+			echo '<div>detail_image | <a href="creative_image_delete?id=sdf">Delete</a> | '.HTML::image('/media/ad_images/'.$detail_image).'</div>';
 			echo PHP_EOL;
 		}
 		echo $form;
