@@ -9,11 +9,14 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 
 		$querystring = $this->request->query();
 		$id = Arr::get($querystring,'id',NULL);
-
+                   
 		// Create view for the edit page
 		$view = View::factory('pages/admin/creative/images');
 		$view->ad_image = NULL;
 		$view->detail_image = NULL;
+                $view->ad_id = NULL;
+                $view->detail_id = NULL;
+                $view->creative_id = $id;
 
 		// TODO::need to fix validation of image uploads
 		// Rule definitions for image forms
@@ -33,10 +36,12 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 				switch ($image->image->image_type) {
 					case 'ad':
 						$view->ad_image = $image->image->local_location;
+                                                $view->ad_id = $image->image->image_id;
 						$ad_image = true;
 						break;
 					case 'detail':
 						$view->detail_image = $image->image->local_location;
+                                                $view->detail_id = $image->image->image_id;
 						$detail_image = true;
 						break;
 				}	
@@ -62,6 +67,11 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 
 		if ($form->load()->validate())
 		{
+                    // JAW 2/24/2013 - Changed flow. Now check for ad_image
+                    // if there is no image set, then pull the information for the save.
+                    // does this for both ad and detail.
+                        if(!$ad_image)
+                        {
 			// Get each file to be uploaded and upload them
 			$ad_image = $form->ad_image->val();
                         
@@ -70,13 +80,6 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 			$ad_filename = $ad_array[0];
                         $ad_full = $ad_array[1];
                         
-			$detail_image = $form->detail_image->val();
-                        //JAW 2/17/2013 - Changed to get array, then parse for file path and full id
-			$detail_array = $this->_save_image($detail_image,440,440);
-                        $detail_filename = $detail_array[0];
-                        $detail_full = $detail_array[1];
-                        
-			// TODO::save to creative
                         // JAW 2/17/2013- Call the save function
                         $this -> _write_save_final(array(
                             'image_id' => $ad_full, 
@@ -84,6 +87,20 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
                             'image_type' => 'ad',
                             'local_location' => $ad_filename
                         ));
+                        
+                        //JAW 2/17/2013 - Access the db call to save the item in the db.
+			$view->ad_image = $ad_filename;
+                        }
+                        
+                        if(!$detail_image)
+                        {
+			$detail_image = $form->detail_image->val();
+                        //JAW 2/17/2013 - Changed to get array, then parse for file path and full id
+			$detail_array = $this->_save_image($detail_image,440,440);
+                        $detail_filename = $detail_array[0];
+                        $detail_full = $detail_array[1];
+                        
+                        // JAW 2/17/2013- Call the save function
                         $this -> _write_save_final(array(
                             'image_id' => $detail_full,
                             'image_name' => $form-> detail_img_name -> val() ,
@@ -92,8 +109,32 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
                         ));
                         
                         //JAW 2/17/2013 - Access the db call to save the item in the db.
-			$view->ad_image = $ad_filename;
 			$view->detail_image = $detail_filename;
+                        }
+                        
+//			// TODO::save to creative
+//                        // JAW 2/17/2013- Call the save function
+//                        if(!$ad_image){
+//                        $this -> _write_save_final(array(
+//                            'image_id' => $ad_full, 
+//                            'image_name' => $form-> ad_img_name -> val(),
+//                            'image_type' => 'ad',
+//                            'local_location' => $ad_filename
+//                        ));
+//                        }
+//                        if(!$detail_image)
+//                        {
+//                        $this -> _write_save_final(array(
+//                            'image_id' => $detail_full,
+//                            'image_name' => $form-> detail_img_name -> val() ,
+//                            'image_type' => 'detail',
+//                            'local_location' => $detail_filename
+//                        ));
+//                        }
+//                        
+//                        //JAW 2/17/2013 - Access the db call to save the item in the db.
+//			$view->ad_image = $ad_filename;
+//			$view->detail_image = $detail_filename;
 
 			$form = NULL;
 		}
@@ -177,5 +218,6 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 			// of double posts as well
 			//$this->request->redirect($this->request->uri().'?id='.$id);
             }
+
 	
 }
