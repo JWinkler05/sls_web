@@ -26,8 +26,7 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 		$form = Formo::form();
 
 		$images_request = json_decode(Request::factory('api_images_get/index')->query(array('id' => $id))->execute());
-
-		$images = $images_request->results;
+                $images = $images_request->results;
 
 		if (!isset($images->message)) {
 			foreach ($images as $image) {
@@ -43,7 +42,7 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 				}	
 			}
 		}
-
+                
 		if (!$ad_image) {
 
                         $form->add('ad_img_name', array('label' => "Ad Image's Name",'css' => array('id' => 'ad_id')));
@@ -57,7 +56,6 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 			$form->add('detail_image', 'file');
 			//->rules('logo', $rules);
 		}
-
 		if (!$ad_image or !$detail_image) {
 			$form->add('Upload', array('type' => 'submit','css' => array('id' => 'btnSubmit')));
 		}
@@ -77,7 +75,7 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
 			$detail_array = $this->_save_image($detail_image,440,440);
                         $detail_filename = $detail_array[0];
                         $detail_full = $detail_array[1];
-
+                        
 			// TODO::save to creative
                         // JAW 2/17/2013- Call the save function
                         $this -> _write_save_final(array(
@@ -177,7 +175,7 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
                 
                         // Redirect to this page, updates current data, removes chance
 			// of double posts as well
-			$this->request->redirect($this->request->uri().'?id='.$id);
+			//$this->request->redirect($this->request->uri().'?id='.$id);
             }
 	
 }
