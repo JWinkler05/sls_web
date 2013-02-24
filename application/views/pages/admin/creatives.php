@@ -19,17 +19,17 @@ $count++;
 
 	<div class="row_<?php echo $ad->creative->creative_id; ?>">
 		<div class=""><?php echo sprintf('%02u', $count); ?>.) 
-			<a href='admin_creative_edit?id=<?php echo $ad->creative->creative_id; ?>'>Edit</a> | 
-			<a href='admin_creative_images?id=<?php echo $ad->creative->creative_id; ?>'>Images</a> | 
-			<a href='admin_creative_markets?id=<?php echo $ad->creative->creative_id; ?>'>Markets</a> | 
-			<a href='admin_creative_categories?id=<?php echo $ad->creative->creative_id; ?>'>Categories</a> | 
-			<a href='admin_creative_tags?id=<?php echo $ad->creative->creative_id; ?>'>Tags</a> | 
-			<a href='admin_creative_delete?id=<?php echo $ad->creative->creative_id; ?>'>Delete</a>: 
+			<a href='creative_edit?id=<?php echo $ad->creative->creative_id; ?>'>Edit</a> | 
+			<a href='creative_images?id=<?php echo $ad->creative->creative_id; ?>'>Images</a> | 
+			<a href='creative_markets?id=<?php echo $ad->creative->creative_id; ?>'>Markets</a> | 
+			<a href='creative_categories?id=<?php echo $ad->creative->creative_id; ?>'>Categories</a> | 
+			<a href='creative_tags?id=<?php echo $ad->creative->creative_id; ?>'>Tags</a> | 
+			<a href='creative_delete?id=<?php echo $ad->creative->creative_id; ?>'>Delete</a>: 
 			<?php echo $ad->creative->business_name.' - '.$ad->creative->sms_code; ?>
 		</div>
 	</div>
 <?php } ?>
 	<div class="create_new">
-		<a href='admin_creative_add'>Add New Creative</a>
+		<a href='creative_add'>Add New Creative</a>
 	</div>
 </div>

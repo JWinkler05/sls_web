@@ -149,6 +149,12 @@ Route::set('dev', 'dev(/<controller>(/<action>(/<id>)))')
 		'controller' => 'homepage',
 		'action'     => 'index',
 	));
+Route::set('admin', 'admin(/<controller>(/<action>(/<id>)))')
+	->defaults(array(
+		'directory'  => 'admin',
+		'controller' => 'home',
+		'action'     => 'index',
+	));
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'homepage',
