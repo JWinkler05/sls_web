@@ -27,12 +27,11 @@ class Controller_Admin_Creative_Image_Delete extends Controller_Template_Citysca
         
         protected function _delete_image($creative_id, $image_id)
         {
-            // Execute put request to update record
+            // Execute put request to delete record
                $request = Request::factory('http://'.Servers::$api_server."/creatives/".$creative_id."/images/".$image_id)
 			->method(Request::DELETE)
 			->headers('Content-Type', 'application/json');
-//		var_dump('http://'.Servers::$api_server."/creatives/$id/images/");
-//                var_dump(json_encode($fields));die();
+//		
 			$response = $request->execute();
                 
                         // Redirect to this page, updates current data, removes chance
