@@ -1,3 +1,23 @@
+Installing this repo
+
+git clone
+git checkout development
+git submodule update --init --recursive
+install apache2
+install php5
+install php5-curl
+install php-pear
+sudo pecl install mongo
+copy etc/php5/mongo.ini to /etc/php5/conf.d/
+copy etc/sls_web_ to http vhost directory 
+  update working location
+  update log file locations
+enable mod_rewrite_ 
+enable mod_headers_
+restart apache2
+run {base_dir}/fix_permissions.sh
+
+
 # Kohana PHP Framework
 
 [Kohana](http://kohanaframework.org/) is an elegant, open source, and object oriented HMVC framework built using PHP5, by a team of volunteers. It aims to be swift, secure, and small.
