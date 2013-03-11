@@ -11,6 +11,7 @@
 	<?php
 	// Include the layout for a single ad
 	$view = View::factory('segments/ad/single');
+	$view->ad_image = $ad_image;
 	$view->creative = $creative;
 	echo $view->render();
 	?> 
@@ -19,6 +20,7 @@
 	<?php
 	// Include the layout for the ad detail
 	$view = View::factory('segments/ad/detail');
+	$view->detail_image = $detail_image;
 	$view->creative = $creative;
 	echo $view->render();
 	?> 

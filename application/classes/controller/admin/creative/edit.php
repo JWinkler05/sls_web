@@ -17,6 +17,22 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 		// Each record is ecapsulated in a creative contain
 		$detail = $detail_return->results->creative;
 
+		$ad_image = NULL;
+		$detail_image = NULL;
+		
+		if ($detail->images) {
+			foreach ($detail->images as $image){
+				switch ($image->image_type) {
+					case 'ad':
+						$ad_image = $image->local_location;
+						break;
+					case 'detail':
+						$detail_image = $image->local_location;
+						break;
+				}
+			}
+		}
+
 		// Create Form with record details
 		$form = Formo::form()
 			->add('creative_id',
@@ -92,6 +108,8 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 		$view->creative = $detail;
 		$view->id = $id; 
 		$view->posted = $posted;
+		$view->ad_image = $ad_image;
+		$view->detail_image = $detail_image;
 
 		// Set over page title in template
 		$this->template->title = __('smartlocalsocial.com: ' . $detail->business_name . $detail->offer_in_short);
