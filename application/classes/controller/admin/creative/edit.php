@@ -15,7 +15,7 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 		$detail_return = json_decode(Request::factory('ads_detail/index')->query('id',$id)->execute());
 
 		// Each record is ecapsulated in a creative contain
-		$detail = $detail_return->results['0']->creative;
+		$detail = $detail_return->results->creative;
 
 		// Create Form with record details
 		$form = Formo::form()
