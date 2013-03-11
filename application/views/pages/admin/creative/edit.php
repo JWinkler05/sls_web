@@ -10,7 +10,7 @@
 	<p>Single Column Ad preview</p>
 	<?php
 	// Include the layout for a single ad
-	$view = View::factory('pages/ad/single');
+	$view = View::factory('segments/ad/single');
 	$view->creative = $creative;
 	echo $view->render();
 	?> 
@@ -18,7 +18,7 @@
 	<p class='grid_16'>Full Size Detail preview</p>
 	<?php
 	// Include the layout for the ad detail
-	$view = View::factory('pages/ad/detail');
+	$view = View::factory('segments/ad/detail');
 	$view->creative = $creative;
 	echo $view->render();
 	?> 
