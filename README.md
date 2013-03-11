@@ -16,6 +16,7 @@ enable mod_rewrite_
 enable mod_headers_
 restart apache2
 run {base_dir}/fix_permissions.sh
+add /etc/hosts entry for devwww.smartlocalsocial.com
 
 
 # Kohana PHP Framework
