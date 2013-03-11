@@ -10,6 +10,7 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 		// Create Blank Ad Object
 		$creative = new stdClass;
 		$creative->ad_type = NULL;
+		$creative->ad_size = 1;
 		$creative->ad_image_name = NULL;
 		$creative->business_name = NULL;
 		$creative->offer_in_short = NULL;
@@ -59,6 +60,8 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 		// Assign variables to be accessed in the view
 		$view->form = $form;
 		$view->creative = $creative;
+		$view->ad_image = NULL;
+		$view->detail_image = NULL;
 
 		// Set over page title in template
 		$this->template->title = __('smartlocalsocial.com: Add new creative');
