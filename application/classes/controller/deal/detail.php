@@ -21,7 +21,7 @@ class Controller_Deal_Detail extends Controller_Template_Cityscape_Default
 				$image_url = $image;
 			}
 		}
-var_dump($image_url);
+
 		$view->detail_image = $image_url;
 
 		$view->id = $id; 
