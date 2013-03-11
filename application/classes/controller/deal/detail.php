@@ -16,9 +16,11 @@ class Controller_Deal_Detail extends Controller_Template_Cityscape_Default
 
 		$image_url = NULL;
 
-		foreach ($detail->images as $image) {
-			if ($image->image_type === 'detail') {
-				$image_url = $image;
+		if (isset($detail->images)) {
+			foreach ($detail->images as $image) {
+				if ($image->image_type === 'detail') {
+					$image_url = $image->local_location;
+				}
 			}
 		}
 

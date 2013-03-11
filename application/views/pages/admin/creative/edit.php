@@ -21,7 +21,7 @@
 	// Include the layout for the ad detail
 	$view = View::factory('segments/ad/detail');
 	$view->detail_image = $detail_image;
-	$view->creative = $creative;
+	$view->selected = $creative;
 	echo $view->render();
 	?> 
 </div>
