@@ -20,7 +20,7 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 		$ad_image = NULL;
 		$detail_image = NULL;
 		
-		if ($detail->images) {
+		if (isset($detail->images)) {
 			foreach ($detail->images as $image){
 				switch ($image->image_type) {
 					case 'ad':
