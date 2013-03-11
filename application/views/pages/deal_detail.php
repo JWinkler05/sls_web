@@ -25,27 +25,6 @@
 
 	</div>
 		<?php
-/* 
-echo '<br/>'.$selected->id;
-echo '<br/>'.$selected->ad_type;
-echo '<br/>'.$selected->ad_size;
-echo '<br/>'.$selected->image_location;
-echo '<br/>'.$selected->location_specific;
-echo '<br/>'.$selected->location_city;
-echo '<br/>'.$selected->business_name;
-echo '<br/>'.$selected->offer_in_short;
-echo '<br/>'.$selected->list_price;
-echo '<br/>'.$selected->coupon_price;
-echo '<br/>'.$selected->sms_code;
-echo '<br/>'.$selected->category_id;
-echo '<br/>'.$selected->specific_category;
-echo '<br/>'.$selected->savings;
-echo '<br/>'.$selected->expiration;
-echo '<br/>'.$selected->description;
-echo '<br/>'.$selected->detailed_offer;
-echo '<br/>'.$selected->ad_image_name;
-echo '<br/>'.$selected->company_logo_image_name;
-*/
 		?>
 <?php foreach ($ads as $ad) {
 if ($ad->creative->creative_id !== $id){
