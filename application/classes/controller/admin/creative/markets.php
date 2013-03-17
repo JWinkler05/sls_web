@@ -57,9 +57,11 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
 			
 			if(!key_exists($market_id, $marketArr))
 			{
-				//JAW 2/17/2013 - Changed to get array, then parse for file path and full id
-				$this -> _update_creative_market($creative_id, $market_id);
-				die('DEATH');
+				//JAW 3/17/2013 - Changed to get array, then parse for file path and full id
+				$this -> _update_creative_market(array(
+				    'creative_id' => $creative_id,
+				    'market_id' => $market_id
+				));
 				//http_redirect('admin/creative_markets?id='.$creative_id);
 			}
 			else
@@ -95,7 +97,7 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
 	protected function _get_markets()
         {
             // Execute request to get all valid markets
-			$request = Request::factory('http://'.Servers::$api_server."/markets/")
+			$request = Request::factory('http://'.Servers::$api_server."/markets")
 				->method(Request::GET)
 				->headers('Content-Type', 'application/json');
 			$markets = json_decode($request->execute(),true);
@@ -109,7 +111,6 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
 	
 		foreach($fieldArr as $tempItem)
 		{
-			var_dump($tempItem);
 			
 			if(in_array($tempItem, $baseArr)){
 				unset($baseArr[array_search($tempItem, $fieldArr)]);
@@ -118,14 +119,17 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
 		return $baseArr;
 	}
         
-	protected function _update_creative_market($creative_id, $market_id)
+	protected function _update_creative_market($fields)
         {
-		
+		$querystring = $this->request->query();
+		$creative_id = Arr::get($querystring,'id',NULL);
+
 		// Execute request to get all valid markets
-			$request = Request::factory('http://'.Servers::$api_server."/markets/$creative_id/markets/$market_id")
-				->method(Request::PUT)
+			$request = Request::factory('http://'.Servers::$api_server."/creatives/$creative_id/markets")
+				->method(Request::POST)
+				->body(json_encode($fields))
 				->headers('Content-Type', 'application/json');
 		
-			return json_decode($request->execute(),true);
+			$response = $request->execute();
         }
 }
