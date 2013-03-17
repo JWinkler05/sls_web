@@ -9,7 +9,7 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
 		$creative_id = Arr::get($querystring,'id',NULL);
 
 		// Create view for the edit page
-		$view = View::factory('pages/admin/markets');
+		$view = View::factory('pages/admin/creative/markets');
 		$view-> creative_id = $creative_id;
 
 		// TODO::need to fix validation of image uploads
