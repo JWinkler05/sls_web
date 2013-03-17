@@ -24,14 +24,18 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
                 $marketArrAll = array();
 		//var_dump($markets_request);die();
 		
-                foreach($markets_request_byid['results'] as $market)
-                {
-                    $marketArr[$market['market']['id']] = $market['market']['market_name'];
-                }
+		if (is_array($markets_request_byid)){
+			foreach($markets_request_byid['results'] as $market)
+			{
+			    $marketArr[$market['market']['id']] = $market['market']['market_name'];
+			}
+		}
 		
-		foreach($markets_request['results'] as $market)
-		{
-			$marketArrAll[$market['market']['id']] = $market['market']['market_name'];
+		if (is_array($markets_request)){
+			foreach($markets_request['results'] as $market)
+			{
+				$marketArrAll[$market['market']['id']] = $market['market']['market_name'];
+			}
 		}
                 
                 //Reset the pointer

@@ -1,5 +1,8 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-
+//TODO::Add back button
+//TODO::Add spacing below submit
+//TODO::Format page better
+//TODO::Add links to top of page (images,markets,tags,categories)
 class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Default
 {
 	public function action_index()
@@ -20,7 +23,7 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 		$ad_image = NULL;
 		$detail_image = NULL;
 		
-		if ($detail->images) {
+		if (isset($detail->images)) {
 			foreach ($detail->images as $image){
 				switch ($image->image_type) {
 					case 'ad':

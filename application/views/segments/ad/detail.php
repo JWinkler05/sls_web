@@ -1,21 +1,24 @@
 <div class="grid_16 outergray">
-	<div class="innerwhite">
-		<div class="column grid_4 detail_offset">
-			<h2><?php echo $creative->business_name; ?></h2>
-			<p><?php echo $creative->description; ?></p>
-			<p><?php echo $creative->sms_code; ?></p>
-		</div>
-		<div class="mainimg grid_8">
-			<img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/{$creative->ad_image_name}" ?>">
-		</div>
-		<div class="columnafter grid_4 detail_offset">
-			<p>Offer Details</p>
-			<p class="advdeal"><?php echo $creative->detailed_offer; ?></p>
-			<p>Regular Price</p>
-			<p class="regprice"><?php echo $creative->list_price; ?></p>
-			<p>Sale Price</p>
-			<p class="saleprice"><?php echo $creative->coupon_price; ?></p>
-		
-		</div>
+    <div class="innerwhite">
+	<div class="mainimg grid_8">
+	    <center><h1 class="buistitle"><?php echo $selected->business_name; ?></h1></center>
+	    <img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/$detail_image" ?>">
 	</div>
+	<div class="column grid_4 detail_offset">
+	    <p align="center"><?php echo $selected->description; ?></p>
+	    <p class="sms_blurb"><br /><?php echo "For more great deals from " . $selected->business_name . ", "; ?></p>
+	    <p class ="sms_code"><?php echo $selected->sms_code; ?></p>
+	    <br/>
+	    <p><strong>Offer Details</strong></p>
+	    <p class="advdeal"><?php echo $selected->detailed_offer; ?></p>
+	</div>
+	<div class="columnafter grid_4 detail_offset">
+	    <p><strong>Regular Price</strong></p>
+	    <p class="regprice"><?php echo "$" . $selected->list_price; ?></p>
+	    <br/>
+	    <p><strong>Sale Price</strong></p>
+	    <p class="saleprice"><?php echo "$" . $selected->coupon_price; ?></p>
+
+	</div>
+    </div>
 </div>

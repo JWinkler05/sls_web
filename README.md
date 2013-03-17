@@ -7,6 +7,7 @@ install apache2
 install php5
 install php5-curl
 install php-pear
+install php5-gd
 sudo pecl install mongo
 copy etc/php5/mongo.ini to /etc/php5/conf.d/
 copy etc/sls_web_ to http vhost directory 
@@ -16,6 +17,7 @@ enable mod_rewrite_
 enable mod_headers_
 restart apache2
 run {base_dir}/fix_permissions.sh
+add /etc/hosts entry for devwww.smartlocalsocial.com
 
 
 # Kohana PHP Framework
