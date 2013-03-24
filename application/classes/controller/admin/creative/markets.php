@@ -6,7 +6,7 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
 		{
 		
 		$querystring = $this->request->query();
-		$creative_id = Arr::get($querystring,'id',NULL);
+		$creative_id = trim(Arr::get($querystring,'id',NULL));
 
 		// Create view for the edit page
 		$view = View::factory('pages/admin/creative/markets');
@@ -63,6 +63,8 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
 				    'market_id' => $market_id
 				));
 				//http_redirect('admin/creative_markets?id='.$creative_id);
+				//JAW 3/24/2013 - Add redirect
+				$this->request->redirect('/admin/creative_markets?id='.$creative_id);
 			}
 			else
 			{
@@ -122,7 +124,7 @@ class Controller_Admin_Creative_Markets extends Controller_Template_Cityscape_De
 	protected function _update_creative_market($fields)
         {
 		$querystring = $this->request->query();
-		$creative_id = Arr::get($querystring,'id',NULL);
+		$creative_id = trim(Arr::get($querystring,'id',$default= NULL));
 
 		// Execute request to get all valid markets
 			$request = Request::factory('http://'.Servers::$api_server."/creatives/$creative_id/markets")
