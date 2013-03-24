@@ -11,6 +11,7 @@ class Controller_Admin_Creative_Image_Delete extends Controller_Template_Citysca
 		View::set_global('menu',TRUE);
 		$view = View::factory('pages/admin/creative/image/delete');
                 $view-> image_id = $image_id;
+		$view-> creative_id = $id;
                 //var_dump($id." : ".$image_id); die();
                //$this -> _delete_img_file($image_id);
                $this -> _delete_image($id, $image_id);
