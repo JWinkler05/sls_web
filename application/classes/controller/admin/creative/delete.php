@@ -16,13 +16,14 @@ class Controller_Admin_Creative_Delete extends Controller_Template_Cityscape_Def
                 //JAW 3/7/2013 -- Call to delete the images associated with a creative.
                 $params = $this ->_delete_creatives_images($creative_id);
 
-                //JAW 3/7/2013 -- Get each of the image Ids, delete the images.
-                foreach($params['results'] as $imageArr)
-                {
-                    $this -> _delete_img_file($imageArr['image']['local_location']);
-                    $this -> _delete_image($creative_id, $imageArr['image']['image_id']);
-                }
-                
+		if ($params['results']['message'] !== 'no images found') {
+			//JAW 3/7/2013 -- Get each of the image Ids, delete the images.
+			foreach($params['results'] as $imageArr)
+			{
+			    $this -> _delete_img_file($imageArr['image']['local_location']);
+			    $this -> _delete_image($creative_id, $imageArr['image']['image_id']);
+			}
+		}
                 //var_dump($temp);die();
                 //var_dump($params['results'][0]['image']['image_id']);die('prep');
                                 
