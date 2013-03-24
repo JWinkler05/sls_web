@@ -90,6 +90,7 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
                         
                         //JAW 2/17/2013 - Access the db call to save the item in the db.
 			$view->ad_image = $ad_filename;
+			$view->ad_id = $ad_full;
                         }
                         
                         if(!$detail_image)
@@ -110,6 +111,7 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
                         
                         //JAW 2/17/2013 - Access the db call to save the item in the db.
 			$view->detail_image = $detail_filename;
+			$view->detail_id = $detail_full;
                         }
                         
 //			// TODO::save to creative
@@ -203,7 +205,7 @@ class Controller_Admin_Creative_Images extends Controller_Template_Cityscape_Def
             protected function _write_save_final($fields)
             {
                 $querystring = $this->request->query();
-		$id = Arr::get($querystring,'id',NULL);
+		$id = trim(Arr::get($querystring,'id',NULL));
                 
                // Execute put request to update record
                $request = Request::factory('http://'.Servers::$api_server."/creatives/$id/images/")
