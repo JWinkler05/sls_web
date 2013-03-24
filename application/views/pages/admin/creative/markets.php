@@ -11,7 +11,8 @@
 		{
 		$temp = array_keys($tblMarket, $market);
 		echo $market;
-		echo '<a href="creative_market_delete?market_id= ' .$temp[0].'"> Delete</a> <br />';
+		$tempURL ='creative_market_delete?creative_id= ' .$creative_id. '&market_id= ' .$temp[0];
+		echo '<a href="' .$tempURL. '"> Delete </a> <br />';
 		}
 ?>
 
