@@ -18,7 +18,9 @@
 		</div>
 		<div id="container_main" class="container_16">
 			<?php echo View::factory('template/cityscape/components/header')->render(); ?>
-			<?php echo $content ?>
+			<?php echo View::factory('template/cityscape/components/content_navigation')->render(); ?>
+			<?php echo $content; ?>
+			<?php echo View::factory('template/cityscape/components/content_navigation')->render(); ?>
 			<?php echo View::factory('template/cityscape/components/footer')->render(); ?>
 		</div>
 <?php if (Kohana::$environment !== Kohana::PRODUCTION) {
