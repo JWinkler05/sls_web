@@ -55,7 +55,7 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 			$creative_id = $creative->results->creative->creative_id;
 
 			// Redirect to edit page
-			$this->request->redirect('/admin_creative_edit?id='.$creative_id); 
+			$this->request->redirect('/admin/creative_edit?id='.$creative_id); 
 		}
 
 		// Create view for the edit page
