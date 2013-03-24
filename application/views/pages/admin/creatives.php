@@ -10,7 +10,7 @@ if (!is_array($ads)) {
 $count = 0;
 ?>
 	<div class="create_new">
-		<a href='admin_creative_add'>Add New Creative</a>
+		<a href='creative_add'>Add New Creative</a>
 	</div>
 <?php
 foreach ($ads as $ad) {
