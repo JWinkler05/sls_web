@@ -1,12 +1,14 @@
 
-<div id="cp_main" class="grid_16">
-	<br/>
-	<ul>
 		<!-- JAW 4/7/2013 - Navigation -->
 		<?php
 		if (isset($_GET['id']))
 			{
-		$creative_id = $_GET['id'];
+			$creative_id = $_GET['id'];
+		?>
+<div id="cp_main" class="grid_16">
+	<br/>
+	<ul>
+<?php
 		echo '<li><div>';
 		echo	'<div class="">' ; 
 		echo	"<a href='creative_edit?id=$creative_id'>Edit</a> |"; 
@@ -20,9 +22,11 @@
 		echo '</div></li>'; 
 		
 		echo '<li><a href="/admin/Creatives">Go Back To Creatives</a></li>';	
-		}
-		?>
+?>
 		<li><a href="/admin/">Main Menu</a></li>
 	</ul>
 	<br/>
 </div>
+<?php
+		}
+		?>
