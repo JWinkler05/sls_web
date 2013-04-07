@@ -52,12 +52,12 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 			$scripts_manual = array(
 				"
 			var ADAPT_CONFIG = {
-			  path: '/modules/tpl-cityscape/media/css/',
+			  path: '/media/tpl-cityscape/css/',
 			  dynamic: true,
 			  range: [
 				'0px to 1px = mobile.min.css',
-				'2px to 3px = 720.min.css',
-				'4px to 2600px = 960.min.css'
+				'2px to 30px = 720.min.css',
+				'301px to 2600px = 960.min.css'
 			  ]
 			};
 				",
