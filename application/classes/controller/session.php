@@ -7,21 +7,29 @@
  * @author     Managed I.T.
  * @copyright  (c) 2011 Managed I.T.
  */
-class Controller_Session extends Controller {
+class Controller_Session extends Controller_Template_Cityscape_Default {
 	
 	public function action_login()
 	{
+		$error = NULL;
 		if ($this->request->method() == Request::POST)
 		{
 			$success = Auth::instance()->login($this->request->post('username'),$this->request->post('password'),TRUE);
 			if ($success) {
 				$this->request->redirect(''); // Redirect to homepage...
 			} else {
-				echo "Invalid username or password";
+				$error =  "Invalid username or password";
 			}
 		}
 
-		$this->response->body(View::factory('session/login'));
+		$view = View::factory('session/login');
+		$view->error = $error;
+
+		// Set Page title
+		$this->template->title = __('Login to smartlocalsocial.com');
+		
+		// Render view in template
+		$this->template->content = $view;
 	}
 
 	public function action_logout()

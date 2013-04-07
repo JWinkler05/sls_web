@@ -1,5 +1,12 @@
-<form action="" method="post">
-	<input type="text" name="username">
-	<input type="text" name="password">
-	<input type="submit">
-</form>
+<div id="cp_main_content" class="grid_16 no-sidebar">
+<p>Enter your username and password to login</p>
+<?php $form = Formo::form()
+	->add('username')
+	->add('password','password')
+	->add('submit','submit',array('value'=>'Login'));
+echo $form;
+if ($error) {
+	echo '<span class="error-message">'.$error.'</span>';
+}
+?>
+</div>
