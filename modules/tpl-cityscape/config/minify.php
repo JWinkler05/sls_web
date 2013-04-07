@@ -11,7 +11,7 @@ return array(
                 '//media/tpl-cityscape/css/header.css',
                 '//media/tpl-cityscape/css/main_menu.css',
                 '//media/tpl-cityscape/css/content.css',
-		'//media/tpl-cityscape/css/960.min.css',
+		//'//media/tpl-cityscape/css/960.min.css',
         ),
    )
 );
