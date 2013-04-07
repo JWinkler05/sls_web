@@ -9,7 +9,7 @@
 		<?php foreach ($scripts_upper as $file) echo HTML::script($file), PHP_EOL ?>
 		<?php foreach ($scripts_manual as $file) echo '<script>'.PHP_EOL.$file.PHP_EOL.'</script>', PHP_EOL ?>
 		<?php foreach ($scripts_lower as $file) echo HTML::script($file), PHP_EOL ?>
-		<?php echo HTML::style('/min?g=js'), PHP_EOL; ?>
+		<?php echo HTML::script('/min?g=js'), PHP_EOL; ?>
 		<link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon" />
 	</head>
 	<body>
