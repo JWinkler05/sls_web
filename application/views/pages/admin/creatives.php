@@ -24,7 +24,7 @@ $count++;
 			<a href='creative_markets?id=<?php echo $ad->creative->creative_id; ?>'>Markets</a> | 
 			<a href='creative_categories?id=<?php echo $ad->creative->creative_id; ?>'>Categories</a> | 
 			<a href='creative_tags?id=<?php echo $ad->creative->creative_id; ?>'>Tags</a> | 
-			<a href='creative_delete?id=<?php echo $ad->creative->creative_id; ?>'>Delete</a>: 
+			<a href='creative_delete?id=<?php echo $ad->creative->creative_id; ?>' onclick="return confirm('Do you really want to delete?');">Delete</a>:
 			<?php echo $ad->creative->business_name.' - '.$ad->creative->sms_code; ?>
 		</div>
 	</div>
