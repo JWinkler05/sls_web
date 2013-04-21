@@ -1,7 +1,7 @@
 <div id="cp_main_content" class="grid_16 no-sidebar">
-<p>Enter your username and password to login</p>
+<p>Enter your email and password to login</p>
 <?php $form = Formo::form()
-	->add('username')
+	->add('email')
 	->add('password','password')
 	->add('submit','submit',array('value'=>'Login'));
 echo $form;
