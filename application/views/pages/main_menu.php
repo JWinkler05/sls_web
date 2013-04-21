@@ -1,12 +1,13 @@
 <?php
+//JAW 4/21/2013 - issue 14 -- Change to match database category names.
 $navigation_links = array(
 	'' => 'all deals',
-	'?category=nationwide' => 'nationwide deals',
-	'?category=entertainment' => 'entertainment',
-	'?category=dining%20and%20food' => 'food and dining',
-	'?category=health%20and%20beauty' => 'health and beauty',
-	'?category=travel%20and%20hotel' => 'travel and hotel',
-	'?category=home%20services' => 'home services',
+	'?category=Nationwide' => 'nationwide deals',
+	'?category=Entertainment' => 'entertainment',
+	'?category=Dining%20And%20Food' => 'food and dining',
+	'?category=Health%20And%20Beauty' => 'health and beauty',
+	'?category=Travel%20And%20Hotel' => 'travel and hotel',
+	'?category=Home%20Service' => 'home services',
 );
 ?>
 <ul>
