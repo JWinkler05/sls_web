@@ -11,7 +11,7 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 		$full_ads = NULL;
 		View::set_global('menu',TRUE);
 //		
-//		//Set the category in the session.
+//		////JAW 4/21/2013 - issue 14 -- Set the category in the session.
 		if (isset($_GET['category'])){
 			//var_dump(strval($_GET['category']));die();
 			$session -> set('visitor_category', strval($_GET['category']));
@@ -31,14 +31,14 @@ class Controller_Homepage extends Controller_Template_Cityscape_Default
 		$view->ads_primary = $ads_primary->results;
 		$view->full_ads = NULL;
 		
-		// If no ads are provided for current market, choose all markets
+		// If no ads are provided for current category, get all for the market.
 		if (!$ads_primary->results and $session->get('visitor_category',NULL)) {
 			$session->set('visitor_category',NULL);
 			$full_ads = json_decode(Request::factory('ads_primary/index')->execute());
 			$view->full_ads = $full_ads->results;
 		}
 
-		// If no ads are provided for current market, choose all markets
+		// If no ads are provided for current market, choose all markets.
 		if (!$ads_primary->results and !$full_ads) {
 			$full_ads = json_decode(Request::factory('ads_primary/index')->query(array('metro'=>'all'))->execute());
 			$view->full_ads = $full_ads->results;
