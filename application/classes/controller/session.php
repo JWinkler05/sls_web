@@ -14,11 +14,11 @@ class Controller_Session extends Controller_Template_Cityscape_Default {
 		$error = NULL;
 		if ($this->request->method() == Request::POST)
 		{
-			$success = Auth::instance()->login($this->request->post('username'),$this->request->post('password'),TRUE);
+			$success = Auth::instance()->login($this->request->post('email'),$this->request->post('password'),TRUE);
 			if ($success) {
 				$this->request->redirect(''); // Redirect to homepage...
 			} else {
-				$error =  "Invalid username or password";
+				$error =  "Invalid email or password";
 			}
 		}
 
