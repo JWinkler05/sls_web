@@ -76,7 +76,7 @@ class Auth_Internal extends Auth {
 				// Set the autologin cookie
 				Cookie::set('authautologin', $token->access_token, $this->_config['lifetime']);
 			}
-	                $request = Request::factory('http://devapi.smartlocalsocial.com/index.php/users/me');
+	                $request = Request::factory('http://'.Servers::$api_server.'/index.php/who/me');
 	
         	        $response = $consumer->execute($request);
 	
