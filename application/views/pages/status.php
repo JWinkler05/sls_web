@@ -6,6 +6,8 @@ if (Auth::instance()->logged_in()) {
 		echo HTML::anchor('admin','Control Panel',array('class'=>'status_button'));
 	}
 } else {
+	//JAW 4/21/2013 - issue 19 -- Add register button.
+	echo HTML::anchor('session/registration','Register',array('class'=>'status_button status_right'));
 	echo HTML::anchor('session/login','Login',array('class'=>'status_button status_right'));
 }
 ?>
