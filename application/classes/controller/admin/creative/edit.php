@@ -19,7 +19,6 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 
 		// Each record is ecapsulated in a creative contain
 		$detail = $detail_return->results->creative;
-
 		$ad_image = NULL;
 		$detail_image = NULL;
 		
@@ -77,6 +76,10 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 				array('value'=>$detail->detailed_offer,
 				)
 			)
+			->add('website',
+				array('value'=>$detail->website,
+				)
+			)
 			->add('submit',
 				'submit',
 				array('value'=>'Submit Changes',
@@ -89,7 +92,9 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 			// Remove submit field if present in the post variables
 			$fields = array ('fields' => $posted);
 			unset($fields['fields']['submit']);
-
+			$website = array('fields' => array("website" => $fields['fields']['website']));
+			var_dump($website);var_dump($fields);
+			unset($fields['fields']['website']);
 			// Execute put request to update record
 			$request = Request::factory('http://'.Servers::$api_server."/creatives/{$detail->creative_id}")
 				->method(Request::PUT)
@@ -98,6 +103,14 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 		
 			$response = $request->execute();
 
+			// Execute put request to update record
+			$request2 = Request::factory('http://'.Servers::$api_server."/locations/{$detail->location_id}")
+				->method(Request::PUT)
+				->body(json_encode($website))
+				->headers('Content-Type', 'application/json');
+		
+			$response2 = $request2->execute();
+			//var_dump($response2);die();
 			// Redirect to this page, updates current data, removes chance
 			// of double posts as well
 			$this->request->redirect($this->request->uri().'?id='.$detail->creative_id); 
@@ -119,6 +132,5 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 		
 		// Display view in template
 		$this->template->content = $view;
-	}
-	
+	}	
 }
