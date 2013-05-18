@@ -10,9 +10,11 @@ if (!is_array($ads)) {
 $count = 0;
 ?>
 	<div class="create_new">
-		<a href='creative_add'>Add New Creative</a>
+		<a href='creative_add?org_id=<?php echo trim($org_id) ?>'>Add New Creative</a>
+		<br /><br />
 	</div>
 <?php
+if($ads) {
 foreach ($ads as $ad) {
 $count++;
 ?>
@@ -23,13 +25,16 @@ $count++;
 			<a href='creative_images?id=<?php echo $ad->creative->creative_id; ?>'>Images</a> | 
 			<a href='creative_markets?id=<?php echo $ad->creative->creative_id; ?>'>Markets</a> | 
 			<a href='creative_categories?id=<?php echo $ad->creative->creative_id; ?>'>Categories</a> | 
+			<a href='creative_locations?id=<?php echo $ad->creative->creative_id; ?>'>Locations</a> |
 			<a href='creative_tags?id=<?php echo $ad->creative->creative_id; ?>'>Tags</a> | 
 			<a href='creative_delete?id=<?php echo $ad->creative->creative_id; ?>' onclick="return confirm('Do you really want to delete?');">Delete</a>:
 			<?php echo $ad->creative->business_name.' - '.$ad->creative->sms_code; ?>
 		</div>
 	</div>
-<?php } ?>
+	
+<?php }} ?>
 	<div class="create_new">
-		<a href='creative_add'>Add New Creative</a>
+		<br />
+		<a href='creative_add?org_id=<?php echo trim($org_id) ?>'>Add New Creative</a>
 	</div>
 </div>
