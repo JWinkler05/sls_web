@@ -4,7 +4,7 @@ class Controller_Admin_Home extends Controller_Template_Cityscape_Default
 {
 	public function action_index()
 	{
-		if (!Auth::instance()->logged_in('admin')) { 
+		if (!Auth::instance()->logged_in('admin') && !Auth::instance() -> logged_in('member')) { 
 			$this->request->redirect(''); // Redirect to homepage...
 		}
 		$full_ads = NULL;
