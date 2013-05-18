@@ -6,7 +6,9 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 	{
 		// Grab the post variables
 		$posted = $this->request->post();
-
+		//Get Params
+		$params = $this->request->query();
+		//var_dump($params);die();
 		// Create Blank Ad Object
 		$creative = new stdClass;
 		$creative->ad_type = NULL;
@@ -19,6 +21,8 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 		$creative->sms_code = NULL;
 		$creative->description = NULL;
 		$creative->detailed_offer = NULL;
+		//$creative->website = NULL;
+		$creative->org_id = $params['org_id'];
 
 		// Create Blank Form
 		$form = Formo::form()
@@ -30,6 +34,11 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 			->add('sms_code')
 			->add('description','textarea')
 			->add('detailed_offer','textarea')
+//			->add('website')
+			->add('org_id',
+				array('value'=>$params['org_id'],
+				    'editable' => FALSE,
+				))
 			->add('submit','submit',array('value'=>'Submit Changes'));
 
 		// Logic to execute on a successful post
@@ -38,21 +47,35 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 			// Remove submit field if present in the post variables
 			$fields = array ('fields' => $posted);
 			unset($fields['fields']['submit']);
+//			$website = array('fields' => array("website" => $fields['fields']['website']));
+//			//var_dump($website);var_dump($fields);
+//			unset($fields['fields']['website']);
 			
 			$fields['fields']['ad_size'] = 1;
-
+			$fields['fields']['org_id'] = $params['org_id'];
+			//var_dump($fields);
 			// Execute put request to create record
 			$request = Request::factory('http://'.Servers::$api_server.'/creatives')
 				->method(Request::POST)
 				->body(json_encode($fields))
 				->headers('Content-Type', 'application/json');
 		
+			//var_dump('http://'.Servers::$api_server.'/creatives');
+			//var_dump(json_encode($fields));
 			$response = $request->execute();
-			
+			//var_dump($response);die('HERE');
 			$creative = json_decode($response);
-
+			//var_dump($creative);die();
 			// Parse response for creative id
 			$creative_id = $creative->results->creative->creative_id;
+			
+//			// Execute put request to update record
+//			$request2 = Request::factory('http://'.Servers::$api_server."/locations/{$detail->location_id}")
+//				->method(Request::PUT)
+//				->body(json_encode($website))
+//				->headers('Content-Type', 'application/json');
+//		
+//			$response2 = $request2->execute();
 
 			// Redirect to edit page
 			$this->request->redirect('/admin/creative_edit?id='.$creative_id); 

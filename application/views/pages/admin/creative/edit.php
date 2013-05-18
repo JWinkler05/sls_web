@@ -22,6 +22,10 @@
 	$view = View::factory('segments/ad/detail');
 	$view->detail_image = $detail_image;
 	$view->selected = $creative;
+	if(!isset($creative->website))
+	{
+		$view->selected->website = NULL;
+	}
 	echo $view->render();
 	?> 
 </div>
