@@ -17,11 +17,12 @@
 		echo	"<a href='creative_categories?id=$creative_id'> Categories </a> | ";
 		echo	"<a href='creative_tags?id=$creative_id'> Tags </a> | ";
 		/*echo	"<a href='creative_delete?id=$creative_id'>Delete</a> ";*/
+		echo	"<a href='creative_locations?id=$creative_id'> Locations </a> | ";
 		echo	"<a href='creative_delete?id=$creative_id'onclick= \"return confirm('Do you really want to delete?');\" > Delete</a> ";
 		echo	'</div>';
 		echo '</div></li>'; 
 		
-		echo '<li><a href="/admin/Creatives">Go Back To Creatives</a></li>';	
+		//echo '<li><a href="/admin/Creatives">Go Back To Creatives</a></li>';	
 ?>
 		<li><a href="/admin/">Main Menu</a></li>
 	</ul>

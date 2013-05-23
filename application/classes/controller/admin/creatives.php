@@ -11,8 +11,16 @@ class Controller_Admin_Creatives extends Controller_Template_Cityscape_Default
 		View::set_global('menu',TRUE);
 		$view = View::factory('pages/admin/creatives');
 		$params = $this->request->query();
-		$ads_all = json_decode(Request::factory('ads_all/index')->execute());
+		$org_id = $params['org_id'];
+		$view -> org_id = $org_id;
+		//var_dump($params);die();
+		$ads_all = json_decode(Request::factory('ads_all/index?org_id='. trim($org_id))->execute());
+		//var_dump($ads_all);die();
 		$view->ads = $ads_all->results;
+		if(!$ads_all->results)
+		{
+			$view -> full_ads = NULL;
+		}
 
 		//$this->response->body($view);
 		$this->template->title = __('Welcome to smartlocalsocial.com');
