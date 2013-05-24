@@ -7,11 +7,14 @@ class Controller_Admin_Creatives extends Controller_Template_Cityscape_Default
 		if (!Auth::instance()->logged_in('admin')) { 
 			$this->request->redirect(''); // Redirect to homepage...
 		}
+		$session = Session::instance();
+
 		$full_ads = NULL;
 		View::set_global('menu',TRUE);
 		$view = View::factory('pages/admin/creatives');
 		$params = $this->request->query();
 		$org_id = $params['org_id'];
+		$session->set('org_id',trim($org_id));
 		$view -> org_id = $org_id;
 		//var_dump($params);die();
 		$ads_all = json_decode(Request::factory('ads_all/index?org_id='. trim($org_id))->execute());
