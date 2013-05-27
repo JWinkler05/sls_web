@@ -35,6 +35,8 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 			->add('description','textarea')
 			->add('detailed_offer','textarea')
 //			->add('website')
+//			->add('facebook')
+//			->add('twitter')
 			->add('org_id',
 				array('value'=>$params['org_id'],
 				    'editable' => FALSE,
@@ -47,6 +49,7 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 			// Remove submit field if present in the post variables
 			$fields = array ('fields' => $posted);
 			unset($fields['fields']['submit']);
+			
 //			$website = array('fields' => array("website" => $fields['fields']['website']));
 //			//var_dump($website);var_dump($fields);
 //			unset($fields['fields']['website']);
