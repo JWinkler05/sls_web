@@ -5,6 +5,8 @@ class Controller_Admin_Creative_Locations extends Controller_Template_Cityscape_
 	public function action_index()
 		{
 		
+		$session = Session::instance();
+
 		$querystring = $this->request->query();
 		$creative_id = trim(Arr::get($querystring,'id',NULL));
 
@@ -14,10 +16,12 @@ class Controller_Admin_Creative_Locations extends Controller_Template_Cityscape_
 
 		$rules = array ();
                 
+		$org_id = $session->get('org_id',NULL);
+
 		$form = Formo::form();
 
 		$locations_request_byid = $this -> _get_locations_by_creative($creative_id);//json_decode(Request::factory('api_markets_get/index')->query(array('id' => $id))->execute());
-                $locations_request = $this -> _get_locations();
+                $locations_request = $this -> _get_locations($org_id);
 		$locationArr = array();
                 $locationArrAll = array();
 		//var_dump($locations_request_byid);die();
@@ -29,7 +33,7 @@ class Controller_Admin_Creative_Locations extends Controller_Template_Cityscape_
 			}
 		}
 		
-		if (is_array($locations_request)){
+		if (is_array($locations_request) && $locations_request['results'] != null){
 			foreach($locations_request['results'] as $location)
 			{
 				$locationArrAll[$location['location']['id']] = $location['location']['name'];
@@ -94,10 +98,10 @@ class Controller_Admin_Creative_Locations extends Controller_Template_Cityscape_
 
         }
 	
-	protected function _get_locations()
+	protected function _get_locations($org_id)
         {
             // Execute request to get all valid locations
-			$request = Request::factory('http://'.Servers::$api_server."/locations")
+			$request = Request::factory('http://'.Servers::$api_server."/locations?org_id=$org_id")
 				->method(Request::GET)
 				->headers('Content-Type', 'application/json');
 			$markets = json_decode($request->execute(),true);
