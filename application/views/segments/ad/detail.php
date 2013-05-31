@@ -45,12 +45,20 @@
 	    <p class="advdeal"><?php echo $selected->detailed_offer; ?></p>
 	</div>
 	<div class="columnafter grid_4 detail_offset">
+	    <?php if($selected->list_price != NULL && $selected->list_price != '' && $selected->list_price > 0) { ?>
 	    <p><strong>Regular Price</strong></p>
 	    <p class="regprice"><?php echo "$" . $selected->list_price; ?></p>
 	    <br/>
+	    <?php }
+	     if($selected->coupon_price != NULL && $selected->coupon_price != '' && $selected->coupon_price > 0) { ?>
 	    <p><strong>Sale Price</strong></p>
 	    <p class="saleprice"><?php echo "$" . $selected->coupon_price; ?></p>
 	    <br/>
+	    <?php } elseif(strpos(strtolower($selected->offer_in_short), 'free') !== FALSE) { ?>
+	    <p><strong>Sale Price</strong></p>
+	    <p class="saleprice"><?php echo 'Free'; ?></p>
+	    <br/>
+	    <?php } ?>
 <!--	    <p><strong>Website</strong></p>
 	    <a href="http://<?php echo $selected->website; ?>" alt="Website URL"><?php echo $selected->website; ?></a>-->
 	    <br />
