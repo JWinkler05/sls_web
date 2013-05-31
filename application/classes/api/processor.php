@@ -2,15 +2,21 @@
 
 class Api_Processor
 {
+	public static function get($resource, $params = NULL,$body = NULL,$headers = NULL, $protocol = 'http', $api_server = NULL)
+	{
+		return self::_request('GET',$resource,$params,$body,$headers,$protocol,$api_server);
+	}
 
-	public static function request($auth,$method = 'GET', $resource, $params,$body = NULL,$headers = NULL, $protocol = 'http', $api_server = NULL)
+	protected static function _request($method = 'GET',$resource, $params = NULL,$body = NULL,$headers = NULL, $protocol = 'http', $api_server = NULL)
 	{
 		$api_server = $api_server ?: Servers::$api_server;
 
-		$params = http_build_query($params);
+		if ($params) {
+			'?'.$params = http_build_query($params);
+		}
 		
 		// Generate API request
-		$api_request = Request::factory("$protocol://$api_server/$resource?$params");
+		$api_request = Request::factory("$protocol://$api_server/$resource$params");
 
 		switch ($method) {
 			case 'PUT':
@@ -36,10 +42,14 @@ class Api_Processor
 			}
 		}
 		
-		$api_request->execute();
+		$response = $api_request->execute();
+
+		$body = json_decode($response->body());
+
+		$results = $body->results;
 
 		// Set return response
-		return $api_request;
+		return $results;
 	}
 	
 }

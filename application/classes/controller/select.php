@@ -14,13 +14,13 @@ class Controller_Select extends Controller {
 		// Get the session instance
 		$session = Session::instance();
 
-		// Set metro array
-		// TODO::Pull from active markets
-		$metro_list = array (
-			'510' => 'Cleveland',
-			'512' => 'Baltimore',
-			'535' => 'Columbus',
-		);
+		// Set metro and market arrays
+		$markets = Api_Processor::get('markets');
+
+		foreach ($markets as $market) {
+			$metro_list[$market->market->metro] = $market->market->market_name;
+			$market_list['--- '.Lib_Valid::return_full($market->market->state).' ---'][$market->market->metro] = $market->market->market_name;
+		}
 
 		// Get metro/city if a session variable is not already set
 		$metro_code = $session->get('visitor_metro',NULL);
@@ -54,25 +54,10 @@ class Controller_Select extends Controller {
 			// TODO::make select controller load before ads, then remove this hack
 			$this->request->redirect(URL::base()); 
 		}
-
-		// Create the markets dropdown array
-		// TODO::Pull from active markets rather than hard code
-		$markets = array
-		(
-		    'Maryland' => array
-		    (
-			'512' => 'Baltimore',
-		    ),
-		    'Ohio' => array
-		    (
-			'535' => 'Columbus',
-			'510' => 'Cleveland',
-		    )
-		);
 		 
 		// Create the market select form with dropdown
 		$form = Formo::form()
-			->add_group('market', 'select', $markets, $metro_code, array('label' => 'Current Market'));
+			->add_group('market', 'select', $market_list, $metro_code, array('label' => 'Current Market'));
 		$form->market->set('attr',array('onchange'=>'this.form.submit()'));
 
 		// Logic to execute on a successful post
