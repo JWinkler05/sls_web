@@ -12,7 +12,7 @@
 		$temp = array_keys($tblLocation, $location);
 		echo $location;
 		$tempURL ='creative_location_delete?creative_id=' .$creative_id. '&location_id= ' .$temp[0];
-		echo '<a href="' .$tempURL. '"> Delete </a> <br />';
+		echo '<a href="' .$tempURL. '" onclick="return confirm(\'Do you really want to delete?\')";> Delete</a> ';
 		}
 ?>
 

@@ -10,7 +10,7 @@
 		$temp = array_keys($tblCategory, $Category);
 		echo $Category;
 		$tempURL ='creative_category_delete?creative_id= ' .$creative_id. '&category_id= ' .$temp[0];
-		echo '<a href="' .$tempURL. '"> Delete </a> <br />';
+		echo '<a href="' .$tempURL. '" onclick="return confirm(\'Do you really want to delete?\')";> Delete </a> ';
 		}
 ?>
 
