@@ -9,22 +9,22 @@
 	<br/>
 	<ul>
 <?php
-		echo '<li><div>';
-		echo	'<div class="">' ; 
-		echo	"<a href='creative_edit?id=$creative_id'> Edit </a> |"; 
-		echo	"<a href='creative_images?id=$creative_id'> Images </a> |"; 
-		echo	"<a href='creative_markets?id=$creative_id'> Markets </a> |"; 
-		echo	"<a href='creative_categories?id=$creative_id'> Categories </a> | ";
-		echo	"<a href='creative_tags?id=$creative_id'> Tags </a> | ";
-		/*echo	"<a href='creative_delete?id=$creative_id'>Delete</a> ";*/
-		echo	"<a href='creative_locations?id=$creative_id'> Locations </a> | ";
-		echo	"<a href='creative_delete?id=$creative_id'onclick= \"return confirm('Do you really want to delete?');\" > Delete</a> ";
-		echo	'</div>';
-		echo '</div></li>'; 
+//		echo '<li><div>';
+//		echo	'<div class="">' ; 
+//		echo	"<a href='creative_edit?id=$creative_id'> Edit </a> |"; 
+//		echo	"<a href='creative_images?id=$creative_id'> Images </a> |"; 
+//		echo	"<a href='creative_markets?id=$creative_id'> Markets </a> |"; 
+//		echo	"<a href='creative_categories?id=$creative_id'> Categories </a> | ";
+//		echo	"<a href='creative_tags?id=$creative_id'> Tags </a> | ";
+//		/*echo	"<a href='creative_delete?id=$creative_id'>Delete</a> ";*/
+//		echo	"<a href='creative_locations?id=$creative_id'> Locations </a> | ";
+//		echo	"<a href='creative_delete?id=$creative_id'onclick= \"return confirm('Do you really want to delete?');\" > Delete</a> ";
+//		echo	'</div>';
+//		echo '</div></li>'; 
 		
 		//echo '<li><a href="/admin/Creatives">Go Back To Creatives</a></li>';	
 ?>
-		<li><a href="/admin/">Main Menu</a></li>
+<!--		<li><a href="/admin/">Main Menu</a></li>-->
 	</ul>
 	<br/>
 </div>
