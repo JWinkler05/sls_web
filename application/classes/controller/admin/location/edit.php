@@ -39,39 +39,43 @@ class Controller_Admin_Location_Edit extends Controller_Template_Cityscape_Defau
 				)
 			)
 			->add('address1',
-				array('value'=>$location ['address1'],
+				array('value'=>$location['address1'],
 				)
 			)
 			->add('address2',
-				array('value'=>$location ['address2'],
+				array('value'=>$location['address2'],
 				)
 			)
 			->add('zip',
-				array('value'=>$location ['zip'],
+				array('value'=>$location['zip'],
 				)
 			)
 			->add('phone1',
-				array('value'=>$location ['address1'],
+				array('value'=>$location['address1'],
 				)
 			)
 			->add('phone2',
-				array('value'=>$location  ['address2'],
+				array('value'=>$location['address2'],
 				)
 			)
 			->add('fax',
-				array('value'=>$location ['fax'],
+				array('value'=>$location['fax'],
 				)
 			)
 			->add('website',
-				array('value'=>$location ['website'],
+				array('value'=>$location['website'],
 				)
 			)
 			->add('facebook',
-				array('value'=>$location ['facebook'],
+				array('value'=>$location['facebook'],
 				)
 			)
 			->add('twitter',
-				array('value'=>$location ['twitter'],
+				array('value'=>$location['twitter'],
+				)
+			)
+			->add('youtube',
+				array('value'=>$location['youtube'],
 				)
 			)
 			->add('submit',

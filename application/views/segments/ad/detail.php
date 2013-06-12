@@ -32,6 +32,16 @@
 	     <img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/$detail_image" ?>">
 	     <?php if($selected->twitter != NULL) { ?>
 	     </a>
+	    <?php } } elseif($selected->youtube != NULL) { ?>
+	    <?php if(strtolower(substr($selected->youtube, 0, 4)) != 'http') {
+			echo "<a href=\"http://$selected->youtube\" alt=\"WebsiteURL\" >";
+		} else {
+			echo "<a href=\"$selected->youtube\" alt=\"WebsiteURL\" >" ;
+		 }
+	     ?>
+	     <img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/$detail_image" ?>">
+	     <?php if($selected->youtube!= NULL) { ?>
+	     </a>
 	    <?php } } else { ?>
 	    <img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/$detail_image" ?>">
 	    <?php } ?>
@@ -80,6 +90,16 @@
 			<?php } ?>
 		 "alt="Twitter Site">
 		 <img src="media/tpl-cityscape/icons/twitter.png" height ="50" width="50" alt="TwitterPic"> </a>
+	    <?php } ?>
+	    
+	    <?php if($selected->youtube != NULL){ ?>
+	    <a href="<?php if(strtolower(substr($selected->youtube, 0, 4)) != 'http') {
+		    echo "http://" . $selected->youtube; ?>
+		    <?php } else {
+		    echo $selected->youtube; ?>
+			<?php } ?>
+		 "alt="Business YouTube Page">
+		 <img src="media/tpl-cityscape/icons/youtube.png" height ="40" width="90" alt="YouTubePic"> </a>
 	    <?php } ?>
 	</div>
     </div>

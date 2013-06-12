@@ -26,6 +26,7 @@ class Controller_Admin_Location_Add extends Controller_Template_Cityscape_Defaul
 			->add('website')
 			->add('facebook')
 			->add('twitter')
+			->add('youtube')
 			->add('submit', 'submit', array('value'=>'Add',));
 
 		// Logic to execute on a successful post

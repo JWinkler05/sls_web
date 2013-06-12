@@ -95,6 +95,11 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 				    'editable'=>FALSE,
 				)
 			)
+			->add('youtube',
+				array('value'=>$detail->youtube,
+				    'editable'=>FALSE,
+				)
+			)
 			->add('submit',
 				'submit',
 				array('value'=>'Submit Changes',
@@ -112,6 +117,7 @@ class Controller_Admin_Creative_Edit extends Controller_Template_Cityscape_Defau
 			unset($fields['fields']['website']);
 			unset($fields['fields']['facebook']);
 			unset($fields['fields']['twitter']);
+			unset($fields['fields']['youtube']);
 			// Execute put request to update record
 			$request = Request::factory('http://'.Servers::$api_server."/creatives/{$detail->creative_id}")
 				->method(Request::PUT)

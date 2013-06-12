@@ -24,6 +24,7 @@ class Controller_Admin_Creative_Add extends Controller_Template_Cityscape_Defaul
 		$creative->website = NULL;
 		$creative->facebook = NULL;
 		$creative->twitter = NULL;
+		$creative->youtube = NULL;
 		$creative->org_id = $params['org_id'];
 
 		// Create Blank Form
