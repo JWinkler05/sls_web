@@ -2,7 +2,7 @@
 	<div class="grid_6">
 		<br /><p>Command Status: </p><br/>
 		<?php
-		echo($result);
+		print_r($result);
 		?>
 		<br /><br />
 		<a href="/admin/organizations"> Go Back </a>
