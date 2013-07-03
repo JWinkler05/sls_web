@@ -14,6 +14,8 @@ class Controller_Admin_Market_Add extends Controller_Template_Cityscape_Default
 		$market->state = NULL;
 		$market->country = NULL;
 		
+		$metrolist = $this->get_metro_list();
+		
 		// Create Blank Form
 		$form = Formo::form()
 			->add('market_name')
@@ -60,6 +62,32 @@ class Controller_Admin_Market_Add extends Controller_Template_Cityscape_Default
 		
 		// Display view in template
 		$this->template->content = $view;
+	}
+	
+	private function get_metro_list() {
+		// Get metro/city if a session variable is not already set
+		$metro_code = $session->get('visitor_metro',NULL);
+		$city = $session->get('visitor_city',NULL);
+
+		if (!isset($metro_code)) {
+			// Get the IP in long format
+			$ip_long    = intval(sprintf("%u", ip2long(Request::$client_ip)));
+
+			// Instantiate the IP models
+			$blocks     = new Mongo_Collection('blocks');
+			$location   = new Mongo_Collection('location');
+
+			// Get the location ID for this IP
+			$block_result       = $blocks->findOne(array('end_ip_number' => array('$gte' => $ip_long)), array('location_id' => 1));
+
+			// Get the location information
+			$location_result    = $location->findOne(array('location_id' => $block_result['location_id']), array('city','metro_code'));
+			print_r($location_result);die();
+			// Set the metro code / city
+			//$metro_code = $location_result['metro_code'];
+			
+			return true;
+		}
 	}
 	
 }
