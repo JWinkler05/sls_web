@@ -1,5 +1,6 @@
 <?php 
 	$view = View::factory('pages/main_content');
+	shuffle($ads_primary);
 	$view->ads = $ads_primary;
 	$view->full_ads = $full_ads;
 	$view->main_grid = $main_grid;
