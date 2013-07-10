@@ -4,9 +4,9 @@
 	    <center><h1 class="buistitle"><?php echo $selected->business_name; ?></h1></center>
 	    <?php if($selected->website != NULL) { ?> 
 	     <?php if(strtolower(substr($selected->website, 0, 4)) != 'http') {
-			echo "<a href=\"http://$selected->website\" alt=\"WebsiteURL\" >";
+			echo "<a href=\"http://$selected->website\" alt=\"WebsiteURL\" target=\"_blank\" >";
 		} else {
-			echo "<a href=\"$selected->website\" alt=\"WebsiteURL\" >" ;
+			echo "<a href=\"$selected->website\" alt=\"WebsiteURL\" target=\"_blank\" >" ;
 		 }
 	     ?>
 	     <img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/$detail_image" ?>">
@@ -14,9 +14,9 @@
 	     </a>
 	     <?php } } elseif($selected->facebook != NULL) { ?>
 	    <?php if(strtolower(substr($selected->facebook, 0, 4)) != 'http') {
-			echo "<a href=\"http://$selected->facebook\" alt=\"WebsiteURL\" >";
+			echo "<a href=\"http://$selected->facebook\" alt=\"WebsiteURL\" target=\"_blank\" >";
 		} else {
-			echo "<a href=\"$selected->facebook\" alt=\"WebsiteURL\" >" ;
+			echo "<a href=\"$selected->facebook\" alt=\"WebsiteURL\" target=\"_blank\" >" ;
 		 }
 	     ?>
 	     <img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/$detail_image" ?>">
@@ -24,9 +24,9 @@
 	     </a>
 	    <?php } } elseif($selected->twitter != NULL) { ?>
 	    <?php if(strtolower(substr($selected->twitter, 0, 4)) != 'http') {
-			echo "<a href=\"http://$selected->twitter\" alt=\"WebsiteURL\" >";
+			echo "<a href=\"http://$selected->twitter\" alt=\"WebsiteURL\" target=\"_blank\" >";
 		} else {
-			echo "<a href=\"$selected->twitter\" alt=\"WebsiteURL\" >" ;
+			echo "<a href=\"$selected->twitter\" alt=\"WebsiteURL\" target=\"_blank\" >" ;
 		 }
 	     ?>
 	     <img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/$detail_image" ?>">
@@ -34,9 +34,9 @@
 	     </a>
 	    <?php } } elseif($selected->youtube != NULL) { ?>
 	    <?php if(strtolower(substr($selected->youtube, 0, 4)) != 'http') {
-			echo "<a href=\"http://$selected->youtube\" alt=\"WebsiteURL\" >";
+			echo "<a href=\"http://$selected->youtube\" alt=\"WebsiteURL\" target=\"_blank\" >";
 		} else {
-			echo "<a href=\"$selected->youtube\" alt=\"WebsiteURL\" >" ;
+			echo "<a href=\"$selected->youtube\" alt=\"WebsiteURL\" target=\"_blank\" >" ;
 		 }
 	     ?>
 	     <img width="450" height="328" alt="image" src="<?php echo "/media/ad_images/$detail_image" ?>">
@@ -78,7 +78,7 @@
 		    <?php } else {
 		    echo $selected->facebook; ?>
 			<?php } ?>
-		 "alt="Facebook Site">
+		 "alt="Facebook Site" target="_blank">
 		 <img src="/media/tpl-cityscape/icons/facebook.png" height ="50" width="50" alt="FacebookPic"> </a>
 	    <?php } ?>
 		    
@@ -88,7 +88,7 @@
 		    <?php } else {
 		    echo $selected->twitter; ?>
 			<?php } ?>
-		 "alt="Twitter Site">
+		 "alt="Twitter Site" target="_blank">
 		 <img src="media/tpl-cityscape/icons/twitter.png" height ="50" width="50" alt="TwitterPic"> </a>
 	    <?php } ?>
 	    
@@ -98,7 +98,7 @@
 		    <?php } else {
 		    echo $selected->youtube; ?>
 			<?php } ?>
-		 "alt="Business YouTube Page">
+		 "alt="Business YouTube Page" target="_blank">
 		 <img src="media/tpl-cityscape/icons/youtube.png" height ="40" width="90" alt="YouTubePic"> </a>
 	    <?php } ?>
 	</div>
