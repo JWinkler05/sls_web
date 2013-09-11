@@ -461,3 +461,7 @@ body {
   zoom: 1;
 }
 */
+
+ul.sortOrdered{
+    list-style-type: none;
+}
