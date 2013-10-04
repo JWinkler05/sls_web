@@ -47,6 +47,9 @@ class Controller_Template_Cityscape_Default extends Controller_Template
 
 			$scripts_upper = array(
 				'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
+			    	'http://code.jquery.com/jquery-1.8.2.js',
+				'http://code.jquery.com/ui/1.10.3/jquery-ui.js',
+
 			);
 			
 			$scripts_manual = array(

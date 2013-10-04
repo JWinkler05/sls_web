@@ -7,6 +7,7 @@ if (Auth::instance()->logged_in('admin')){
 <ul>
 	<li><a href='/admin/organizations'>Organizations</a></li>
 	<li><a href='/admin/markets'>Markets</a></li>
+	<li><a href='/admin/order'>Creative Order</a></li>
 	<!--<li><a href='/admin/creatives'>Creatives</a></li>-->
 </ul>
 <?php 
