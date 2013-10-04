@@ -5,7 +5,7 @@
 return array(
   'default' => array(
     'database'  => 'geoip',
-    'server'  => 'mongodb://testUser:testPass@datastore.smartlocalsocial.com/geoip',
+    'server'  => 'mongodb://testUser:testPass@10.1.1.38/geoip',
     'options'   => array(),
     'profiling' => FALSE
   )
