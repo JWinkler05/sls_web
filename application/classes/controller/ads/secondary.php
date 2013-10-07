@@ -17,13 +17,7 @@ class Controller_Ads_Secondary extends Controller
 			$category = 'category='.$params['category'];
 		}
 
-		if (Kohana::$environment === Kohana::PRODUCTION){
-			$api_server = 'api.smartlocalsocial.com';
-		}else{
-			$api_server = 'devapi.smartlocalsocial.com';
-		}
-
-		$hmvc = Request::factory("http://$api_server/creatives/get_secondary_by_location?$location&$category")
+		$hmvc = Request::factory('http://'.Servers::$api_server."/creatives/get_secondary_by_location?$location&$category")
 			->execute();
 
 		$this->response->body($hmvc);

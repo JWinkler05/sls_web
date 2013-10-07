@@ -13,7 +13,7 @@ class Controller_Welcome extends Controller {
 	{
 		$consumer = OAuth2_Consumer::factory('example');
 
-		$request = Request::factory('http://devapi.smartlocalsocial.com/index.php/users/me');
+		$request = Request::factory('http://'.Servers::$api_server.'/index.php/users/me');
 
 		$response = $consumer->execute($request);
 
