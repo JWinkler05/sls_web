@@ -76,7 +76,7 @@ class Auth_Internal extends Auth {
 				// Set the autologin cookie
 				Cookie::set('authautologin', $token->access_token, $this->_config['lifetime']);
 			}
-	                $request = Request::factory('http://'.Servers::$api_server.'/index.php/who/me');
+	                $request = Request::factory('http://'.Servers::$api_server.'/who/me');
 	
         	        $response = $consumer->execute($request);
 	
