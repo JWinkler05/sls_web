@@ -19,6 +19,7 @@ class Controller_Select extends Controller {
 
 		foreach ($markets as $market) {
 			$metro_list[$market->market->metro] = $market->market->market_name;
+			$metro_ids[] = $market->market->metro;
 			$market_list['--- '.Lib_Valid::return_full($market->market->state).' ---'][$market->market->metro] = $market->market->market_name;
 		}
 
@@ -34,6 +35,7 @@ class Controller_Select extends Controller {
 			$blocks     = new Mongo_Collection('blocks');
 			$location   = new Mongo_Collection('location');
 
+			ini_set('mongo.native_long', 1);
 			// Get the location ID for this IP
 			$block_result       = $blocks->findOne(array('end_ip_number' => array('$gte' => $ip_long)), array('location_id' => 1));
 
@@ -43,7 +45,7 @@ class Controller_Select extends Controller {
 			// Set the metro code / city
 			$metro_code = $location_result['metro_code'];
 			
-			if (!in_array($metro_code,$metro_list)) {
+			if (!in_array($metro_code,$metro_ids)) {
 				$metro_code = '535';
 			}
 
